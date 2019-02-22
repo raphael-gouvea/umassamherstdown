@@ -5,7 +5,10 @@ author: "My Name"
 year: "2017"
 program: "My Department"
 chair: "Name of my committee chair"
-signature: ["committee member 1", "committee member 2"]
+chairtitle: "Title of my chair"
+signature1: "person 1"
+signature2: "person 2"
+signature3: "person 3"
 abstract: |
   "Here is my abstract"
 acknowledgments: |
