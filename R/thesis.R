@@ -1,23 +1,23 @@
-#' Creates an R Markdown PDF Thesis document
+#' Creates an R Markdown PDF Dissertation document
 #'
 #' This is a function called in output in the YAML of the driver Rmd file
-#' to specify using the University of Washington Thesis LaTeX template and cls files.
+#' to specify using the American University dissertation LaTeX template and .cls files.
 #'
 #' @export
 #' @param toc A Boolean (TRUE or FALSE) specifying whether table of contents should be created
 #' @param toc_depth A positive integer
 #' @param highlight Syntax highlighting style. Supported styles include "default", "tango", "pygments", "kate", "monochrome", "espresso", "zenburn", and "haddock". Pass NULL to prevent syntax highlighting.
 #' @param ... other arguments to bookdown::pdf_book
-#' @return A modified \code{pdf_document} based on the Reed Senior Thesis LaTeX
+#' @return A modified \code{pdf_document} based on the American University Dissertation LaTeX
 #'   template
 #' @import bookdown
 #' @examples
 #' \dontrun{
-#'  output: huskydown::thesis_pdf
+#'  output: eagledown::dissertation_pdf
 #' }
-thesis_pdf <- function(toc = TRUE, toc_depth = 3, highlight = "default", ...){
+dissertation_pdf <- function(toc = TRUE, toc_depth = 3, highlight = "default", ...){
 
-  base <- bookdown::pdf_book(template = "template.tex",
+  base <- bookdown::pdf_book(template = "sources/template.tex",
     toc = toc,
     toc_depth = toc_depth,
     highlight = highlight,
@@ -37,10 +37,10 @@ thesis_pdf <- function(toc = TRUE, toc_depth = 3, highlight = "default", ...){
 
 }
 
-#' Creates an R Markdown gitbook Thesis document
+#' Creates an R Markdown gitbook dissertation document
 #'
 #' This is a function called in output in the YAML of the driver Rmd file
-#' to specify the creation of a webpage version of the thesis.
+#' to specify the creation of a webpage version of the dissertation.
 #'
 #' @param ... other arguments to bookdown::gitbook
 #' @export
@@ -48,9 +48,9 @@ thesis_pdf <- function(toc = TRUE, toc_depth = 3, highlight = "default", ...){
 #' @import bookdown
 #' @examples
 #' \dontrun{
-#'  output: huskydown::thesis_gitbook
+#'  output: eagledown::dissertation_gitbook
 #' }
-thesis_gitbook <- function(...){
+dissertation_gitbook <- function(...){
 
   base <- gitbook(
     split_by = "chapter+number",
@@ -69,20 +69,20 @@ thesis_gitbook <- function(...){
 
 }
 
-#' Creates an R Markdown Word Thesis document
+#' Creates an R Markdown Word dissertation document
 #'
 #' This is a function called in output in the YAML of the driver Rmd file
-#' to specify the creation of a Microsoft Word version of the thesis.
+#' to specify the creation of a Microsoft Word version of the dissertation.
 #' @param ... other arguments to  bookdown::word_document2
 #' @import bookdown
 #' @export
-#' @return A Word Document based on (hopefully soon, but not currently)
-#' the Reed Senior Thesis Word template
+#' @return A Word Document based on (not currently)
+#' the American University Word dissertation template
 #' @examples
 #' \dontrun{
-#'  output: huskydown::thesis_word
+#'  output: eagledown::dissertation_word
 #' }
-thesis_word <- function(...){
+dissertation_word <- function(...){
 
   base <- word_document2(...)
 
@@ -94,10 +94,10 @@ thesis_word <- function(...){
 
 }
 
-#' Creates an R Markdown epub Thesis document
+#' Creates an R Markdown epub dissertation document
 #'
 #' This is a function called in output in the YAML of the driver Rmd file
-#' to specify the creation of a epub version of the thesis.
+#' to specify the creation of a epub version of the dissertation.
 #'
 #' @param ... other arguments to bookdown::epub_book
 #' @import bookdown
@@ -105,9 +105,9 @@ thesis_word <- function(...){
 #' @return A ebook version of the thesis
 #' @examples
 #' \dontrun{
-#'  output: huskydown::thesis_epub
+#'  output: eagledown::dissertation_epub
 #' }
-thesis_epub <- function(...){
+dissertation_epub <- function(...){
 
   base <- epub_book(...)
 

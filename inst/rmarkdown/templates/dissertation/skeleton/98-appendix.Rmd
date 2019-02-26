@@ -1,0 +1,130 @@
+\appendix
+
+# ANCILLARY STUFF {#ancillary-stuff}
+
+## LaTeX and Long Tables and Big Graphs {#ancillary-stuff-latex-long-tables-big-graphs}
+
+\begin{table}[tb!]
+\scriptsize
+\begin{center}
+\caption{\label{tanner_tira_ext} Impulse  Response to Cholesky One S.D. Innovations Â± 2 S.E.,
+Alternative Ordering: Interest Differential, Exchange Market Pressure, Domestic Credit,
+1993:12--2005:5}
+\begin{tabular}{cccc}
+\hline \hline
+ Response of ID:   Period &        ID  &        EMP &      DC    \\
+\hline
+       1.00  &      16.88\dag  &           0.00   &           0.00   \\
+
+           &       (1.04) &          (0.00)   &          (0.00)    \\
+
+       2.00  &       -5.39\dag &        1.04  &        1.68  \\
+
+           &       (1.61) &       (1.43) &       (1.53) \\
+
+       3.00  &       -0.56 &       -2.77\ddag &       -0.18 \\
+
+           &       (1.60) &       (1.39) &       (1.55) \\
+
+       4.00  &        2.12  &        0.88  &       (0.42) \\
+
+           &       (1.55) &       (1.18) &       (1.48) \\
+
+       5.00  &        2.21  &       -2.08\ddag &        0.99  \\
+
+           &       (1.57) &       (1.13) &       (1.41) \\
+
+       6.00  &        3.18  &        0.03  &       -4.72\dag \\
+
+           &       (1.64) &       (1.21) &       (1.46) \\
+
+       7.00  &       -1.41 &       -2.19 &        1.78  \\
+
+           &       (1.67) &       (1.18) &       (1.52) \\
+
+       8.00  &       -3.88\dag &       -0.15 &        0.79  \\
+
+           &       (1.56) &       (0.83) &       (1.14) \\
+
+\hline
+  Response of EMP:  Period  &        ID  &       EMP  &        DC  \\
+\hline
+
+       1.00  &        0.87  &      13.20\dag  &          0.00    \\
+
+           &       (1.15) &       (0.82) &          (0.00)   \\
+
+       2.00  &        3.00\dag  &        3.76\dag  &        1.14  \\
+
+           &       (1.28) &       (1.14) &       (1.20) \\
+
+       3.00  &        6.28\dag  &        4.55\dag  &       (0.59) \\
+
+           &       (1.37) &       (1.22) &       (1.24) \\
+
+       4.00  &      12.12\dag  &        0.08  &       -2.80\ddag \\
+
+           &       (1.63) &       (1.27) &       (1.39) \\
+
+       5.00  &      15.40  &       -2.12 &       -0.57 \\
+
+           &       (2.06) &       (1.63) &       (1.70) \\
+
+       6.00  &       -0.79 &       -4.79\dag &        1.24  \\
+
+           &       (2.33) &       (2.14) &       (2.16) \\
+
+       7.00  &       -5.57\dag &       -2.26 &        0.33  \\
+
+           &       (2.34) &       (1.84) &       (2.15) \\
+
+       8.00  &       -0.09 &       -1.88 &       -0.73 \\
+
+           &       (2.24) &       (1.51) &       (1.90) \\
+\hline
+  Response of DC:  Period  &        ID  &       EMP  &        DC  \\
+\hline
+       1.00  &        0.27  &        6.29\dag  &        7.02\dag  \\
+
+           &       (0.82) &       (0.73) &       (0.43) \\
+
+       2.00  &        0.80  &        0.44  &       -1.01 \\
+
+           &       (0.88) &       (0.80) &       (0.86) \\
+
+       3.00  &        5.25\dag  &        2.01\dag  &       -1.18 \\
+
+           &       (0.92) &       (0.78) &       (0.83) \\
+
+       4.00  &        6.39\dag  &       -1.02 &       -1.99\dag \\
+
+           &       (1.07) &       (0.82) &       (0.95) \\
+
+       5.00  &        5.14\dag  &       -2.20\dag &        0.18  \\
+
+           &       (1.20) &       (0.98) &       (1.09) \\
+
+       6.00  &        1.24  &       -2.51\dag &        0.82  \\
+
+           &       (1.26) &       (1.06) &       (1.18) \\
+
+       7.00  &       -4.57\dag &       -1.59 &       0.57 \\
+
+           &       (1.29) &       (0.96) &       (1.17) \\
+
+       8.00  &       0.88 &       0.87 &       0.26 \\
+
+           &       (1.26) &       (0.82) &       (1.06) \\
+\hline
+\end{tabular}\\
+Notes:  Cholesky Ordering: ID EMP DC. The number in () denotes  analytic standard errors.\\
+ \dag: significant at the 1\% level; \ddag: significant at the 5\% level. \\
+\end{center}
+\end{table}
+The impulse responses to Cholesky's one standard deviation innovations to an alternative ordering
+of the variables, with the causal chain running from the interest differential to exchange market
+pressure to the domestic credit,  are given  in Figure \ref{tanner_tira_ext} and Table
+\ref{tanner_tira_ext}.   
+
+# SOME MORE ANCILLARY STUFF {#more-ancillary-stuff}
+

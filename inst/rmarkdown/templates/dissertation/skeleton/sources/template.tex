@@ -1,0 +1,132 @@
+% AU template last modified by AU: 2010 Jul 02
+% SH modifications for Markdown made in September 2018
+
+\documentclass[12pt,econ]{sources/authesis}
+\usepackage{natbib}  % natbib citation style
+% The following packages are for the LaTeX generated graph
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usepackage{tikz}
+\usepackage{lscape}
+\usepackage[hidelinks]{hyperref}
+\usepackage{float} % to float stargazer tables with argument [t] specified in the AU thesis class
+\usepackage{longtable}
+
+
+% 
+% FIGURES
+%
+$if(graphics)$
+\usepackage{graphicx}
+% SH: The following generates all images so they have a width \maxwidth. This means that they will get their normal width if they fit onto the page, but are scaled down if they would overflow the margins:
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth
+\else\Gin@nat@width\fi}
+\makeatother
+\let\Oldincludegraphics\includegraphics
+\renewcommand{\includegraphics}[1]{\Oldincludegraphics[width=\maxwidth]{#1}}
+% SH: The following is repeated from the .cls file to make it appear in Markdown. The commands set the figure float, count etc.
+\makeatletter
+\def\fps@figure{t} 
+\def\ftype@figure{1}
+\def\ext@figure{lof}
+\def\fnum@figure{\figurename~\thefigure}
+\def\figure{\@float{figure}}
+\let\endfigure\end@float
+\@namedef{figure*}{\@dblfloat{figure}}
+\@namedef{endfigure*}{\end@dblfloat}
+\makeatother
+% SH: The following is repeated from the .cls file to make it appear in Markdown. The commands set the captions and also make the lof and lot double-spaced (unless it extends to more than one line, in which case it's single-spaced)
+\makeatletter
+\def\caption{\refstepcounter\@captype \@dblarg{\@caption\@captype}}
+\long\def\@caption#1[#2]#3{%
+  \par \par
+  \addcontentsline{\csname ext@#1\endcsname}{#1}%
+    {\protect\numberline{\csname the#1\endcsname.}{\ignorespaces #2}}%
+  \addtocontents{\csname ext@#1\endcsname}{\protect\addvspace{10\p@}}%
+  \begingroup
+    \@parboxrestore
+    \if@minipage
+      \@setminipage
+    \fi
+    \normalsize
+    \@makecaption{\csname fnum@#1\endcsname}{\ignorespaces #3}\par
+  \endgroup}
+\makeatother
+% end SH
+$endif$
+
+
+
+% Declarations for Front Matter
+%
+% IMPORTANT: IF A TITLE OR SUBTITLE EXCEEDS MORE THAN ONE LINE,
+%            THERE SHOULD ONLY BE  48 CHARACTERS PER LINE.
+%
+% The dissertation title must be capitalized for AU-CAS
+
+\title{$title$}
+\author{$author$}
+\degreeyear{$degreeyear$}
+\degree{$degree$}
+\chair{$chair$}
+\secondreader{$secondreader$}
+\thirdreader{$thirdreader$}
+\fourthreader{$fourthreader$}
+\degreefield{$degreefield$}
+
+
+\begin{document}
+
+\maketitle
+
+% The following command makes the copyright page
+
+\copyrightpage
+
+% The frontmatter environment uses roman lower case page numbering. The
+% abstract, acknowledgements, table of contents, list of figures, and
+% list of tables are a part of this environment.
+
+\begin{frontmatter}
+
+% The Guide requires two abstract pages, one numbered, one without numbers.
+% The 'abstract' macro generates the first, unnumbered, abstract page.
+% The 'abstractn' macro generates the second, numbered, abstract page.
+% 'abstract' must come before 'abstractn' or you will mess up your page numbering.
+
+\abstract{$abstract$}
+%This is an abstract.  There are no page numbers.
+%The \emph{Guide} says an abstract should not exceed 350 words.
+
+\abstractn{$abstract$}
+% YOU MUST REPEAT THE TEXT OF THE ABSTRACT HERE.
+
+%This is an abstractn.  There are page numbers.
+%The \emph{Guide} says an abstract should not exceed 350 words.
+%(If you do exceed this,
+%then under the CAS option, the first page is numbered bottom center, and %the rest are numbered top right.)
+
+
+% Acknowledgements are optional. If you do not wish to include them,
+% simply do not include this command in your source.
+
+\acknowledgements{$acknowledgements$}
+
+
+\tableofcontents
+
+\listoftables
+
+\listoffigures
+
+
+\end{frontmatter}
+
+
+$body$
+
+
+\end{document}
+
+

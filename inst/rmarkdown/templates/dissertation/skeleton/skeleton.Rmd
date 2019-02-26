@@ -1,0 +1,44 @@
+---
+# AU dissertation fields
+title: "MY THESIS OR DISSERTATION TITLE IN CAPITALS (WITH 48 CHARACTERS OR FEWER PER LINE) AS AN INVERTED PYRAMID"
+author: "Will U. Finnish"
+degreeyear: "2525"
+degree: "Doctor of Philosophy"
+chair: "Professor Ivory Tower"
+secondreader: "Professor Ivory Tower"
+thirdreader: "Professor Mih Sing Cite"
+fourthreader: "Professor Ver Tigo"
+degreefield: "Introspective Empiricism"
+abstract: |
+  This is an abstractn.  It has a page number. (AU no longer wants you to provide an unnumbered abstract page.) The Guide says an abstract should not exceed 350 words. (If you do exceed this, then under the CAS option, the first page is numbered bottom center, and the rest are numbered top right.) This is an abstractn. This is an abstractn. This is an abstractn. This is an abstractn. This is an abstractn. This is an abstractn. This is an abstractn. This is an abstractn. This is an abstractn. This is an abstractn. This is an abstractn. This is an abstractn. This is an abstractn. This is an abstractn. This is an abstractn. This is an abstractn. This is an abstractn. This is an abstractn. This is an abstractn. This is an abstractn. This is an abstractn. This is an abstractn. This is an abstractn. This is an abstractn. This is an abstractn. 
+acknowledgements: |
+  I want to "thank" my committee, without whose ridiculous demands I would have graduated so very much faster.
+# End of AU dissertation fields
+knit: "bookdown::render_book"
+site: bookdown::bookdown_site
+output: 
+  eagledown::dissertation_pdf: 
+    latex_engine: xelatex
+#  eagledown::dissertation_gitbook: default
+#  eagledown::dissertation_word: default
+#  eagledown::dissertation_epub: default
+bibliography: bib/references.bib
+csl: sources/apa.csl
+---
+
+```{r include_packages, include = FALSE}
+# This chunk ensures that all required packages for the AU dissertation template are installed and loaded
+if(!require(devtools))
+  install.packages("devtools", repos = "http://cran.rstudio.com")
+if(!require(stargazer))
+  install.packages("stargazer", repos = "http://cran.rstudio.com")
+if(!require(ggplot2))
+  install.packages("ggplot2", repos = "http://cran.rstudio.com")
+if(!require(eagledown))
+  devtools::install_github("SimonHeuberger/eagledown")
+library(devtools)
+library(stargazer)
+library(ggplot2)
+library(eagledown)
+```
+

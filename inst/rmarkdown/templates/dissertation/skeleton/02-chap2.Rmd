@@ -1,0 +1,47 @@
+# PREVIOUS WORK {#previous-work}
+
+Some other research was once performed.
+
+Here is the first equation:
+\begin{equation}
+E = mc^2
+\end{equation}
+
+Here is a second equation:
+\begin{equation}
+y = X\beta + \epsilon
+\end{equation}
+
+Here is a third equation with bold and stuff for matrix representation:
+\begin{equation}
+\mathbf{y} = \mathbf{X}\mathbf{\beta} + \mathbf{\epsilon} (\#eq:binom)
+\end{equation}
+
+This is how you refer back to an equation, e.g. equation \@ref(eq:binom).
+It is not possible to use Markdown math ($) commands to show equations for this template, as Markdown currently neither shows the equation number nor provides the ability to link to the equation.
+
+
+## Section {#previous-work-first-section}
+
+Some was good and some was bad.
+
+
+
+### Subsection {#previous-work-first-section-first-subsection}
+
+Some was neither good or bad.
+
+
+#### Subsubsection {#previous-work-first-section-first-subsection-first-subsubsection}
+
+Surely mine will be better.
+Here is a bulleted list.
+\begin{itemize}
+\item Item 1.
+One of many items.
+\item Item 2.
+\item Item 3.
+\item Item 4.
+\end{itemize}
+
+The AU template heavily modifies the `itemize` environment, so it is better to use it instead of Markdown-generated lists.
