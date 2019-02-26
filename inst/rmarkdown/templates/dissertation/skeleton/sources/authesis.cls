@@ -361,6 +361,9 @@ au-cms.sty is not supported. Please use natbib.sty for your bibliography.}
 % Other English words that need replacement can be found in the macros
 % supporting the title and approval pages.
 %
+%school or college (e.g., College of Arts and Sciences)
+\newcommand\deansigline{\parbox{2.1in}{Dean of the College}}   % used below dean's signature
+\newcommand\schoolorcollege{College of Arts and Sciences}   % used in Faculty specification
 % \tableofcontents:
 \newcommand\contentsname{TABLE OF CONTENTS}   % capitalization required by Guide
 % \listoffigures:
@@ -509,7 +512,7 @@ In \par
  &          &      & {\@fourthreader}             & & &\\
  &          &      &                             & & &\\
  &          &      &                             & & &\\ \cline{1-2}
-\small{Dean of the School \phantom{ CAS or SPA}} & & & & & &\\
+\small{\deansigline} & & & & & &\\
  &          &                             & & &\\
                                             & & & & & \\ \cline{1-2}
  \small{Date}                               & & & & & \\
