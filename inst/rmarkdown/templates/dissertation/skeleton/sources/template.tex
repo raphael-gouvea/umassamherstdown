@@ -1,31 +1,89 @@
-% AU template last modified by AU: 2010 Jul 02
-% SH modifications for Markdown made in September 2018
+%%%%%%% The majority of notes and code is from the original AU template. Adjustments/Additions are indicated by SH (Simon Heuberger)
+%Last modified: 2018 Apr 30
+% SH modifications for Markdown made in February 2019
 
 \documentclass[12pt,econ]{sources/authesis}
+% IMPORTANT NOTES:
+% 1) You MUST run LaTeX THREE times after runing BibTeX.
+% 2) Make sure that you have the LATEST version of the AUTHESIS class files
+%    before you hand in the final version of your thesis or dissertation.
+% 3) SPA students can uncomment the next two lines:
+%\renewcommand{\schoolorcollege}{School of Public Affairs}
+%\renewcommand{\deansigline}{\parbox{2.1in}{Dean of the School}}
+
+% \usepackage commands should go before the \begin{document}
+%required packages
 \usepackage{natbib}  % natbib citation style
+
+%%% SH begin
+% Removed \usepackage{url} and replaced it with the more functional {hyperref}
+\usepackage[hidelinks]{hyperref}
+%%% SH end
+
+%optional packages
+
+%CTABLE
+%\usepackage{ctable} %You should learn about ctable!!
+
+%ULEM
+% IF you use the 'cas' option instead of the preferred 'econ' option,
+% you MAY uncomment the following line.  (NOT recommended.)
+%\usepackage{ulem}
+
+% LONGTABLE
+% To use longtable, add the following code to your preamble.
+% Long table captions are single-spaced, but AU requires a
+% double space between captions, so add to the pre-amble
+% this redefinition (below) of the LT caption to your document.
+% Also, attend to the order the captions are listed in the List of Tables.}
+%%%%%%%%%%%% BEGIN longtable support code
+\usepackage{longtable} %illustrate a problem with longtable
+\def\ssp{\def\baselinestretch{1.0}\large\normalsize}
+\def\dsp{\def\baselinestretch{1.67}\large\normalsize}
+\makeatletter
+\def\LT@makecaption#1#2#3{%
+  \LT@mcol\LT@cols c{\hbox to\z@{\hss\parbox[t]\LTcapwidth{%
+    \sbox\@tempboxa{#1{#2: }#3}%
+    \ifdim\wd\@tempboxa>\hsize
+      #1{#2. }\ssp #3%
+    \else
+      \hbox to\hsize{\hfil\box\@tempboxa\hfil}%
+    \fi
+    \endgraf\vskip\baselineskip}%
+  \hss}}}
+\def\LT@c@ption#1[#2]#3{%
+  \LT@makecaption#1\fnum@table{#3}%
+  \def\@tempa{#2}%
+  \ifx\@tempa\@empty\else
+     {\let\\\space
+     \addcontentsline{lot}{table}{\protect\numberline{\thetable}{#2}}}%
+     \addtocontents{lot}{\protect\addvspace{10\p@}}%
+  \fi}
+\makeatother
+%%%%%%%%%%%% END longtable support code
+
+
+%%% SH begin
 % The following packages are for the LaTeX generated graph
 \usepackage{tikz}
 \usetikzlibrary{arrows}
 \usepackage{tikz}
 \usepackage{lscape}
-\usepackage[hidelinks]{hyperref}
 \usepackage{float} % to float stargazer tables with argument [t] specified in the AU thesis class
 \usepackage{longtable}
 
-
-% 
 % FIGURES
 %
 $if(graphics)$
 \usepackage{graphicx}
-% SH: The following generates all images so they have a width \maxwidth. This means that they will get their normal width if they fit onto the page, but are scaled down if they would overflow the margins:
+% The following generates all images so they have a width \maxwidth. This means that they will get their normal width if they fit onto the page, but are scaled down if they would overflow the margins:
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth
 \else\Gin@nat@width\fi}
 \makeatother
 \let\Oldincludegraphics\includegraphics
 \renewcommand{\includegraphics}[1]{\Oldincludegraphics[width=\maxwidth]{#1}}
-% SH: The following is repeated from the .cls file to make it appear in Markdown. The commands set the figure float, count etc.
+% The following is repeated from the .cls file to make it appear in Markdown. The commands set the figure float, count etc.
 \makeatletter
 \def\fps@figure{t} 
 \def\ftype@figure{1}
@@ -36,7 +94,7 @@ $if(graphics)$
 \@namedef{figure*}{\@dblfloat{figure}}
 \@namedef{endfigure*}{\end@dblfloat}
 \makeatother
-% SH: The following is repeated from the .cls file to make it appear in Markdown. The commands set the captions and also make the lof and lot double-spaced (unless it extends to more than one line, in which case it's single-spaced)
+% The following is repeated from the .cls file to make it appear in Markdown. The commands set the captions and also make the lof and lot double-spaced (unless it extends to more than one line, in which case it's single-spaced)
 \makeatletter
 \def\caption{\refstepcounter\@captype \@dblarg{\@caption\@captype}}
 \long\def\@caption#1[#2]#3{%
@@ -53,17 +111,7 @@ $if(graphics)$
     \@makecaption{\csname fnum@#1\endcsname}{\ignorespaces #3}\par
   \endgroup}
 \makeatother
-% end SH
 $endif$
-
-
-
-% Declarations for Front Matter
-%
-% IMPORTANT: IF A TITLE OR SUBTITLE EXCEEDS MORE THAN ONE LINE,
-%            THERE SHOULD ONLY BE  48 CHARACTERS PER LINE.
-%
-% The dissertation title must be capitalized for AU-CAS
 
 \title{$title$}
 \author{$author$}
@@ -74,9 +122,25 @@ $endif$
 \thirdreader{$thirdreader$}
 \fourthreader{$fourthreader$}
 \degreefield{$degreefield$}
-
+%%% SH end
 
 \begin{document}
+
+% Declarations for Front Matter
+%
+% IMPORTANT: IF A TITLE OR SUBTITLE EXCEEDS MORE THAN ONE LINE,
+%            THERE SHOULD ONLY BE  48 CHARACTERS PER LINE.
+%
+% The dissertation title must be capitalized for AU-CAS
+
+%%% SH begin
+% \title{}, \author{}, \degree{}, \fourthreader etc. are all specified in the .Rmd. Any changes to the number of readers will also need to be made in "authesis.cls", like in the original template
+%%% SH end
+
+% The following command makes the title page, it is duplicated to produce
+% two copies of cover page, as required by AU-CAS.
+
+\maketitle
 
 \maketitle
 
@@ -90,29 +154,23 @@ $endif$
 
 \begin{frontmatter}
 
-% The Guide requires two abstract pages, one numbered, one without numbers.
-% The 'abstract' macro generates the first, unnumbered, abstract page.
-% The 'abstractn' macro generates the second, numbered, abstract page.
-% 'abstract' must come before 'abstractn' or you will mess up your page numbering.
+% The Guide requires one numbered abstract page.
+% The 'abstractn' macro generates a numbered abstract page.
+% Do NOT use the 'abstract' macro, which generates an unnumbered, abstract page.
+% (NOTE: The Guide no longer requires two abstract pages, one numbered, one without numbers.)
 
-\abstract{$abstract$}
-%This is an abstract.  There are no page numbers.
-%The \emph{Guide} says an abstract should not exceed 350 words.
-
+%%% SH begin
 \abstractn{$abstract$}
-% YOU MUST REPEAT THE TEXT OF THE ABSTRACT HERE.
-
-%This is an abstractn.  There are page numbers.
-%The \emph{Guide} says an abstract should not exceed 350 words.
-%(If you do exceed this,
-%then under the CAS option, the first page is numbered bottom center, and %the rest are numbered top right.)
-
+% The content of the abstract is specified in the .Rmd
+%%% SH end
 
 % Acknowledgements are optional. If you do not wish to include them,
 % simply do not include this command in your source.
 
+%%% SH begin
 \acknowledgements{$acknowledgements$}
-
+% The content of the acknowledgements is specified in the .Rmd
+%%% SH end
 
 \tableofcontents
 
@@ -120,12 +178,15 @@ $endif$
 
 \listoffigures
 
-
 \end{frontmatter}
 
-
+%%% SH begin
 $body$
-
+% $body$ refers to all main chapters, i.e. from the Introduction to the Conclusion. The content for these chapters are written in the respective .Rmd files
+% The appendix is specified in appendix.Rmd
+% References are specified in references.Rmd
+% The bibliography and the style are specified in the header of skeleton.Rmd
+%%% SH end
 
 \end{document}
 

@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%    IDENTIFICATION   %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%% AUTHESIS DOCUMENT CLASS  for LaTeX version 2e %%%%%%%%%%%%%
-\ProvidesClass{authesis}[2006/09/26 v2.43 American University Thesis Class]
+\ProvidesClass{authesis}[2016/07/23 v2.51 University Thesis Class]
 \NeedsTeXFormat{LaTeX2e}[2001/06/01]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -11,16 +11,21 @@
 au-cms.sty is not supported. Please use natbib.sty for your bibliography.}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % KNOWN BUGS: 
+%AI:  Use of the hyperref package will change the veritical spacing
+%     between entries in the list of tables and the list of figures.
+%AI:  Use of the `caption` package with the `longtable` package will
+%     produce incorrect spacing in the list of tables.  (A missing
+%     vspace after the caption.)
+%AI:  Large list of tables may overun page number for list of tables?
+%     I am pretty sure this is fixed.  Please report any difficulties.
+%ABC  Large numbers of floats may lead to float placement difficulties.
+%     At this point it is unclear if these are class specific.
 %AI   There is no paper size option.  It is assumed that you will print
 %     your thesis on letter paper (8.5in x 11in).  (Note that if you use
 %     pdflatex you need to make sure it is not preconfigured for A4
 %     ---check the pdflatex configuration file.  For details see
 %     http://miktex.org/manual/chgpdftexcfg.html
 %     I may add a size specification with geometry.sty to deal with this.
-%AI:  Large list of tables may overun page number for list of tables?
-%     I am pretty sure this is fixed.  Please report any difficulties.
-%ABC  Large numbers of floats may lead to float placement difficulties.
-%     At this point it is unclear if these are class specific.
 % OTHER CONSIDERATIONS
 %AI:  In the 'cas' option, page numbering must be a little odd, and this
 %     is currently handled in a hackish way.  The problem is that the
@@ -46,26 +51,34 @@ au-cms.sty is not supported. Please use natbib.sty for your bibliography.}
 %     Guide conforming, according to the most recent edition of the Guide,
 %     and has passed library inspection numerous times.)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% TO DO (possibly):
-% Copy titlepage changes over to proposal.sty
-% Subclass report.cls
-% Change font-size option to call base class options size10.clo etc
+% TODO (possibly):
+% - Subclass report.cls
+% - Copy titlepage changes over to proposal.sty
+% - Change font-size option to call base class options size10.clo etc
 %    (that will require checking for deviations in the defs,
 %     and there are some important ones)
 %    But subclassing report.cls may allow use of its font-size options...
-% \RequirePackage{chngpage} and put front-matter page number bottom middle
+% - \RequirePackage{chngpage} and put front-matter page number bottom middle
 %  http://www.tug.org/teTeX/tetex-texmfdist/tex/latex/chngpage/chngpage.sty
-% Switch to geometry package to set margins.
-% Use toclof.sty to handle multiple lines, or switch to memoir class?
-% Use setspace.sty to handle spacing (shd eliminate need for controlling
-% spacing of tabular environments).  For reasons I do not understand 
-% under the old fontsize defs this seems to require a def of \@currsize such as
-% \def\@currsize{\normalsize}
-% but I commented out the old defs and used the report class options defs
+% - Switch to geometry package to set margins.
+% -Use toclof.sty to handle multiple lines, or switch to memoir class?
+% - Use setspace.sty to handle spacing (shd eliminate need for controlling
+%   spacing of tabular environments).  For reasons I do not understand 
+%   under the old fontsize defs this seems to require a def of \@currsize such as
+%   \def\@currsize{\normalsize}
+%   but I commented out the old defs and used the report class options defs
 %
 % MODIFICATION LOG:
-% Last modified: 20060828
-% ***********************************************************************
+% *********************************************************************************
+%AI: 20160723: just bump version to 2.5; the changed margins deserved a bump
+%AI: 20160722: smaller top margin (roughly 1.1in instead of 2in)
+%              on title and copyright pages, based on example pages
+%              http://www.american.edu/provost/grad/etd/upload/ETD-Appendix-A.pdf
+%AI: 20160722: smaller left margin (roughly 1.1in instead of 1.5in)
+%    based on http://www.american.edu/provost/grad/etd/guide.cfm
+%AI: 20160722: add specifc 4th reader instructions (with commented lines)
+%AI: 20150213: add two commands to be used on title page:
+%              \schoolorcollege and \deansigline
 %AI: 20060926: change APPENDICES to APPENDIX (incomplete fix: 
 %              CAS wants in toc CHAPTER but APPENDICES ... ah well: TODO)
 %AI: 20060926: change APPENDIX to APPENDICES (later reverted: see above)
@@ -289,10 +302,13 @@ au-cms.sty is not supported. Please use natbib.sty for your bibliography.}
 % All margin dimensions measured from a point one inch from top and side
 % of page.
 
+%AI 20160722: changed from 0.5in to 0.1in (narrower left margin; see current guide
+%                               http://www.american.edu/provost/grad/etd/guide.cfm)
+%             (note that LaTeX provides 1 in top & left margins; we add offsets)
 % SIDE MARGINS:
                          % Values for one-sided printing:
-\oddsidemargin 0.5in     %   Note that \oddsidemargin = \evensidemargin
-\evensidemargin 0.5in
+\oddsidemargin 0.1in     %   Note that \oddsidemargin = \evensidemargin
+\evensidemargin 0.1in
 \marginparwidth 0pt
 %\marginparsep           % option specific (but why?)
 
@@ -313,7 +329,9 @@ au-cms.sty is not supported. Please use natbib.sty for your bibliography.}
 
 %\textheight=8.80in
 \textheight=8.75in       %replace 8.80, which is right, with 8.75, to compensate for odd PDF bottom margin printout
-\textwidth 5.95truein     % Width of text line.
+
+%AI 20160722: changed 5.95truein due to narrower left margin (see current guide)
+\textwidth 6.3truein    % Width of text line.
                          % For two-column mode:
 \columnsep 10pt          %    Space between columns
 \columnseprule 0pt       %    Width of rule between columns.
@@ -453,12 +471,16 @@ au-cms.sty is not supported. Please use natbib.sty for your bibliography.}
 }
 
 %%% Define the title page environment         %AI: added 20050713
+%AI: 20160722 2inches no longer required at top
+%    http://www.american.edu/provost/grad/etd/upload/ETD-Appendix-A.pdf
+%    (I'm going to leave just a bit anyway, changing from
+%     28bp,27bp,26bp to 8bp,7bp,6bp)
 \newenvironment{titlepage}
     {%
 \setcounter{page}{1}%                         %AI: superfluous, I believe
 \let\footnotesize\small%
 \let\footnoterule\relax%
-\clearpage\biggertopmargin%
+\clearpage%\biggertopmargin%                 %AI 20160722 commented out biggertopmargin (see note above)
 \thispagestyle{empty}
     }%
     {\setcounter{footnote}{0}
@@ -477,7 +499,7 @@ au-cms.sty is not supported. Please use natbib.sty for your bibliography.}
 By \par {\@author}
 \par
 Submitted to the \par                              
-Faculty of the School of Public Affairs \par   
+Faculty of the \schoolorcollege \par   
 of American University \par                        
 in Partial Fulfillment of \par                     
 the Requirements for the Degree \par               
@@ -487,14 +509,13 @@ In \par
 }
 
 \vspace{0.4cm}
-% **********************************************************
-% AA - Assen Assenov - Change this part for the needs of SPA or CAS 
+
+
 %%% Approval lines.
 % ABC  I did this with the tabular environment because
 % ABC  it seemed a lot easier, given the AU requirement of having the 
 % ABC  professor names under the signature line. 
 %AI: switch to tabular* in order to span page
-% AA - Added Dean;s name
 {%%begin approval lines
 \ssp
 \parindent\z@ 
@@ -507,11 +528,13 @@ In \par
  &          &      &                             & & &\\
  &          &      &                             & & &\\ \cline{4-7}
  &          &      & {\@thirdreader}             & & &\\
+ %uncomment the next three lines if you declare a fourth reader
  &          &      &                             & & &\\
  &          &      &                             & & &\\ \cline{4-7}
  &          &      & {\@fourthreader}             & & &\\
  &          &      &                             & & &\\
  &          &      &                             & & &\\ \cline{1-2}
+%\small{Dean of the College \phantom{ CAS or SPA}} & & & & & \\ 
 \small{\deansigline} & & & & & &\\
  &          &                             & & &\\
                                             & & & & & \\ \cline{1-2}
