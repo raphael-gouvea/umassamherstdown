@@ -132,12 +132,3 @@ fix_envs = function(x){
 }
 
 
-#' Makes R CMD check quieter
-#'
-#' This is a function that does nothing
-#'
-#' @import  devtools dplyr  ggplot2 knitr git2r
-hush_notes <- function() {
-
-
-}

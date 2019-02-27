@@ -44,6 +44,7 @@ In particular, a \texttt{longtable} does not float,
 so table numbering may end up out of order.
 
 
+
 ### Long Section Names: First subsection of first section of introduction which is intentionally long to see what happens if it needs to break a line
 
 
