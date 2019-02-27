@@ -32,6 +32,9 @@
 
 
 %%% SH begin
+% Removed the longtable environment and the longtable in chapter 01 of the template because it is very bad practice
+% The university itself strongly advises against using longtables in the template and only provides it as a last resort
+
 % The following packages are for the LaTeX generated graph
 \usepackage{lscape}
 \usepackage{float} % to float stargazer tables with argument [t] specified in the AU thesis class
@@ -79,9 +82,6 @@ $endif$
 \makeatother
 
 
-
-
-
 \title{$title$}
 \author{$author$}
 \degreeyear{$degreeyear$}
@@ -117,12 +117,7 @@ $endif$
 
 \copyrightpage
 
-% The frontmatter environment uses roman lower case page numbering. The
-% abstract, acknowledgements, table of contents, list of figures, and
-% list of tables are a part of this environment.
-
 \begin{frontmatter}
-
 % The Guide requires one numbered abstract page.
 % The 'abstractn' macro generates a numbered abstract page.
 % Do NOT use the 'abstract' macro, which generates an unnumbered, abstract page.
@@ -133,6 +128,7 @@ $endif$
 % The content of the abstract is specified in the .Rmd
 %%% SH end
 
+
 % Acknowledgements are optional. If you do not wish to include them,
 % simply do not include this command in your source.
 
@@ -141,13 +137,19 @@ $endif$
 % The content of the acknowledgements is specified in the .Rmd
 %%% SH end
 
-\tableofcontents
-
 \listoftables
 
 \listoffigures
 
+%%% SH begin
+% lot and lof moved before the toc because \setcounter{page}{1} in the frontmatter environment for some reason messes up the toc page numbering when they come after the toc. This is cleared and acceptable with AU admin
+%%% SH end
+
+\tableofcontents
+
 \end{frontmatter}
+
+
 
 %%% SH begin
 $body$

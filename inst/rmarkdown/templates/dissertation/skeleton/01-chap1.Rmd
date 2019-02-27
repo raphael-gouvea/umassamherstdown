@@ -33,17 +33,6 @@ Oh Yes There Is & John Maynard Keynes \\ \hline
 \end{table}
 
 
-### Long Tables
-
-If possible, break long tables into pieces.
-If you must, you can use the \texttt{longtable} package.
-Get the supporting code from the preamble of autest.tex.
-However, be aware that the \texttt{longtable} environment
-can create problems.
-In particular, a \texttt{longtable} does not float,
-so table numbering may end up out of order.
-
-
 
 ### Long Section Names: First subsection of first section of introduction which is intentionally long to see what happens if it needs to break a line
 

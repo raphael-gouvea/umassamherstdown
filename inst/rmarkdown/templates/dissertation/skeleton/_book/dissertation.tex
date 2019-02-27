@@ -32,6 +32,9 @@
 
 
 %%% SH begin
+% Removed the longtable environment and the longtable in chapter 01 of the template because it is very bad practice
+% The university itself strongly advises against using longtables in the template and only provides it as a last resort
+
 % The following packages are for the LaTeX generated graph
 \usepackage{lscape}
 \usepackage{float} % to float stargazer tables with argument [t] specified in the AU thesis class
@@ -58,11 +61,8 @@
 \makeatother
 
 
-
-
-
-\title{MY THESIS OR DISSERTATION TITLE IN CAPITALS (WITH 48 CHARACTERS OR FEWER
-PER LINE) AS AN INVERTED PYRAMID}
+\title{MY THESIS OR DISSERTATION TITLE IN CAPITALS\newline (WITH 48 CHARACTERS
+OR FEWER PER LINE)\newline AS AN INVERTED PYRAMID}
 \author{Will U. Finnish}
 \degreeyear{2525}
 \degree{Doctor of Philosophy}
@@ -95,12 +95,7 @@ PER LINE) AS AN INVERTED PYRAMID}
 % The following command makes the copyright page
 
 \copyrightpage
-
-% The frontmatter environment uses roman lower case page numbering. The
-% abstract, acknowledgements, table of contents, list of figures, and
-% list of tables are a part of this environment.
 \begin{frontmatter}
-
 % The Guide requires one numbered abstract page.
 % The 'abstractn' macro generates a numbered abstract page.
 % Do NOT use the 'abstract' macro, which generates an unnumbered, abstract page.
@@ -123,6 +118,7 @@ abstractn. This is an abstractn.}
 % The content of the abstract is specified in the .Rmd
 %%% SH end
 
+
 % Acknowledgements are optional. If you do not wish to include them,
 % simply do not include this command in your source.
 
@@ -132,13 +128,19 @@ would have graduated so very much faster.}
 % The content of the acknowledgements is specified in the .Rmd
 %%% SH end
 
-\tableofcontents
-
 \listoftables
 
 \listoffigures
 
+%%% SH begin
+% lot and lof moved before the toc because \setcounter{page}{1} in the frontmatter environment for some reason messes up the toc page numbering when they come after the toc. This is cleared and acceptable with AU admin
+%%% SH end
+
+\tableofcontents
+
 \end{frontmatter}
+
+
 %%% SH begin
 \chapter{INTRODUCTION}\label{introduction}
 
@@ -174,14 +176,6 @@ Oh Yes There Is & John Maynard Keynes \\ \hline
 \multicolumn{2}{c}{\small Use ctable or booktab for better looking tables.}
 \end{tabular}
 \end{table}
-\subsection{Long Tables}\label{long-tables}
-
-If possible, break long tables into pieces. If you must, you can use the
-\texttt{longtable} package. Get the supporting code from the preamble of
-autest.tex. However, be aware that the \texttt{longtable} environment
-can create problems. In particular, a \texttt{longtable} does not float,
-so table numbering may end up out of order.
-
 \subsection{Long Section Names: First subsection of first section of
 introduction which is intentionally long to see what happens if it needs
 to break a

@@ -217,8 +217,11 @@ au-cms.sty is not supported. Please use natbib.sty for your bibliography.}
 %       12pt : aut12.clo
 
 \ProcessOptions   %AI: executes user chosen document options, if they exist
+%%% SH begin
+% Added sources/ to load the .clo files from the sources subfolder
 \input{sources/au\@thesistype.clo}\relax              % ABC to choose between format
 \input{sources/aut1\@ptsize.clo}\relax                 
+%%% SH end
 
 %  ****************************************
 %  *            PACKAGES                  *

@@ -1,6 +1,6 @@
 ---
 # AU dissertation fields
-title: "MY THESIS OR DISSERTATION TITLE IN CAPITALS (WITH 48 CHARACTERS OR FEWER PER LINE) AS AN INVERTED PYRAMID"
+title: "MY THESIS OR DISSERTATION TITLE IN CAPITALS\\newline (WITH 48 CHARACTERS OR FEWER PER LINE)\\newline AS AN INVERTED PYRAMID"
 author: "Will U. Finnish"
 degreeyear: "2525"
 degree: "Doctor of Philosophy"
