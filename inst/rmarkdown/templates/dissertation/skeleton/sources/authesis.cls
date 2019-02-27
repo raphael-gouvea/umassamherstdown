@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%    IDENTIFICATION   %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%% AUTHESIS DOCUMENT CLASS  for LaTeX version 2e %%%%%%%%%%%%%
-\ProvidesClass{authesis}[2016/07/23 v2.51 University Thesis Class]
+\ProvidesClass{sources/authesis}[2016/07/23 v2.51 University Thesis Class]
 \NeedsTeXFormat{LaTeX2e}[2001/06/01]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -217,8 +217,8 @@ au-cms.sty is not supported. Please use natbib.sty for your bibliography.}
 %       12pt : aut12.clo
 
 \ProcessOptions   %AI: executes user chosen document options, if they exist
-\input{au\@thesistype.clo}\relax              % ABC to choose between format
-\input{aut1\@ptsize.clo}\relax                 
+\input{sources/au\@thesistype.clo}\relax              % ABC to choose between format
+\input{sources/aut1\@ptsize.clo}\relax                 
 
 %  ****************************************
 %  *            PACKAGES                  *
