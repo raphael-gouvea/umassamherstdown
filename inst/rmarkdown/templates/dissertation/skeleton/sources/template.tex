@@ -30,38 +30,6 @@
 % you MAY uncomment the following line.  (NOT recommended.)
 %\usepackage{ulem}
 
-% LONGTABLE
-% To use longtable, add the following code to your preamble.
-% Long table captions are single-spaced, but AU requires a
-% double space between captions, so add to the pre-amble
-% this redefinition (below) of the LT caption to your document.
-% Also, attend to the order the captions are listed in the List of Tables.}
-%%%%%%%%%%%% BEGIN longtable support code
-\usepackage{longtable} %illustrate a problem with longtable
-\def\ssp{\def\baselinestretch{1.0}\large\normalsize}
-\def\dsp{\def\baselinestretch{1.67}\large\normalsize}
-\makeatletter
-\def\LT@makecaption#1#2#3{%
-  \LT@mcol\LT@cols c{\hbox to\z@{\hss\parbox[t]\LTcapwidth{%
-    \sbox\@tempboxa{#1{#2: }#3}%
-    \ifdim\wd\@tempboxa>\hsize
-      #1{#2. }\ssp #3%
-    \else
-      \hbox to\hsize{\hfil\box\@tempboxa\hfil}%
-    \fi
-    \endgraf\vskip\baselineskip}%
-  \hss}}}
-\def\LT@c@ption#1[#2]#3{%
-  \LT@makecaption#1\fnum@table{#3}%
-  \def\@tempa{#2}%
-  \ifx\@tempa\@empty\else
-     {\let\\\space
-     \addcontentsline{lot}{table}{\protect\numberline{\thetable}{#2}}}%
-     \addtocontents{lot}{\protect\addvspace{10\p@}}%
-  \fi}
-\makeatother
-%%%%%%%%%%%% END longtable support code
-
 
 %%% SH begin
 % The following packages are for the LaTeX generated graph
@@ -89,6 +57,8 @@ $if(graphics)$
 \let\endfigure\end@float
 \@namedef{figure*}{\@dblfloat{figure}}
 \@namedef{endfigure*}{\end@dblfloat}
+$endif$
+
 \makeatother
 % The following is repeated from the .cls file to make it appear in Markdown. The commands set the captions and also make the lof and lot double-spaced (unless it extends to more than one line, in which case it's single-spaced)
 \makeatletter
@@ -107,7 +77,10 @@ $if(graphics)$
     \@makecaption{\csname fnum@#1\endcsname}{\ignorespaces #3}\par
   \endgroup}
 \makeatother
-$endif$
+
+
+
+
 
 \title{$title$}
 \author{$author$}

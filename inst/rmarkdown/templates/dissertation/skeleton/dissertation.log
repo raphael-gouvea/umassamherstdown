@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2016.5.22)  27 FEB 2019 00:07
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2016.5.22)  27 FEB 2019 00:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -215,23 +215,6 @@ tly
 (rerunfilecheck)             and the loading of the package is aborted.
 )
 \Hy@SectionHShift=\skip48
-) (/usr/local/texlive/2016/texmf-dist/tex/latex/tools/longtable.sty
-Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)
-\LTleft=\skip49
-\LTright=\skip50
-\LTpre=\skip51
-\LTpost=\skip52
-\LTchunksize=\count113
-\LTcapwidth=\dimen116
-\LT@head=\box29
-\LT@firsthead=\box30
-\LT@foot=\box31
-\LT@lastfoot=\box32
-\LT@cols=\count114
-\LT@rows=\count115
-\c@LT@tables=\count116
-\c@LT@chunks=\count117
-\LT@p@ftn=\toks20
 ) (/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/lscape.sty
 Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
 (/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/graphics.sty
@@ -247,30 +230,30 @@ File: xetex.def 2016/04/06 v4.08 LaTeX color/graphics driver for XeTeX (TeX Liv
 e/RRM/JK)
 ))) (/usr/local/texlive/2016/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count118
-\float@exts=\toks21
-\float@box=\box33
-\@float@everytoks=\toks22
-\@floatcapt=\box34
+\c@float@type=\count113
+\float@exts=\toks20
+\float@box=\box29
+\@float@everytoks=\toks21
+\@floatcapt=\box30
 ) (/usr/local/texlive/2016/texmf-dist/tex/latex/amscls/amsthm.sty
 Package: amsthm 2015/03/04 v2.20.2
-\thm@style=\toks23
-\thm@bodyfont=\toks24
-\thm@headfont=\toks25
-\thm@notefont=\toks26
-\thm@headpunct=\toks27
-\thm@preskip=\skip53
-\thm@postskip=\skip54
-\thm@headsep=\skip55
-\dth@everypar=\toks28
+\thm@style=\toks22
+\thm@bodyfont=\toks23
+\thm@headfont=\toks24
+\thm@notefont=\toks25
+\thm@headpunct=\toks26
+\thm@preskip=\skip49
+\thm@postskip=\skip50
+\thm@headsep=\skip51
+\dth@everypar=\toks27
 )
-\c@theorem=\count119
-\c@lemma=\count120
-\c@definition=\count121
-\c@corollary=\count122
-\c@proposition=\count123
-\c@example=\count124
-\c@exercise=\count125
+\c@theorem=\count114
+\c@lemma=\count115
+\c@definition=\count116
+\c@corollary=\count117
+\c@proposition=\count118
+\c@example=\count119
+\c@exercise=\count120
 (./dissertation.aux)
 \openout1 = `dissertation.aux'.
 
@@ -290,7 +273,7 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 100.
 LaTeX Font Info:    ... okay on input line 100.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 100.
 LaTeX Font Info:    ... okay on input line 100.
-\AtBeginShipoutBox=\box35
+\AtBeginShipoutBox=\box31
 
 Package hyperref Warning: Height of page (\paperheight) is invalid (0.0pt),
 (hyperref)                using 11in.
@@ -301,7 +284,7 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 (/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count126
+\c@section@level=\count121
 )
 LaTeX Info: Redefining \ref on input line 100.
 LaTeX Info: Redefining \pageref on input line 100.
@@ -359,54 +342,47 @@ Underfull \vbox (badness 4569) has occurred while \output is active []
 
 [1
 
-]
-Underfull \vbox (badness 10000) detected at line 233
- []
-
-[2]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[3] [4]
+] [2]
 CHAPTER 2.
+[3
+
+] [4]
+CHAPTER 3.
 [5
 
 ] [6]
-CHAPTER 3.
-[7
-
-] [8]
 CHAPTER 4.
 
 Underfull \vbox (badness 1303) has occurred while \output is active []
 
-[9
+[7
 
-] [10]
+] [8]
 APPENDIX A.
-[11
+[9
 
 ]
 APPENDIX B.
-[12
+[10
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 400.
-[13
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 357.
+[11
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 400.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 357.
 (./dissertation.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 400.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 400.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 400.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 357.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 357.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 357.
  ) 
 Here is how much of TeX's memory you used:
- 9278 strings out of 493591
- 127301 string characters out of 6143546
- 204108 words of memory out of 5000000
- 12634 multiletter control sequences out of 15000+600000
+ 9189 strings out of 493591
+ 126225 string characters out of 6143546
+ 201292 words of memory out of 5000000
+ 12549 multiletter control sequences out of 15000+600000
  10691 words of font info for 39 fonts, out of 8000000 for 9000
  1347 hyphenation exceptions out of 8191
- 34i,9n,45p,517b,481s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 34i,9n,45p,517b,429s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on dissertation.pdf (22 pages).
+Output written on dissertation.pdf (20 pages).

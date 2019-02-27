@@ -37,29 +37,6 @@
 % this redefinition (below) of the LT caption to your document.
 % Also, attend to the order the captions are listed in the List of Tables.}
 %%%%%%%%%%%% BEGIN longtable support code
-\usepackage{longtable} %illustrate a problem with longtable
-\def\ssp{\def\baselinestretch{1.0}\large\normalsize}
-\def\dsp{\def\baselinestretch{1.67}\large\normalsize}
-\makeatletter
-\def\LT@makecaption#1#2#3{%
-  \LT@mcol\LT@cols c{\hbox to\z@{\hss\parbox[t]\LTcapwidth{%
-    \sbox\@tempboxa{#1{#2: }#3}%
-    \ifdim\wd\@tempboxa>\hsize
-      #1{#2. }\ssp #3%
-    \else
-      \hbox to\hsize{\hfil\box\@tempboxa\hfil}%
-    \fi
-    \endgraf\vskip\baselineskip}%
-  \hss}}}
-\def\LT@c@ption#1[#2]#3{%
-  \LT@makecaption#1\fnum@table{#3}%
-  \def\@tempa{#2}%
-  \ifx\@tempa\@empty\else
-     {\let\\\space
-     \addcontentsline{lot}{table}{\protect\numberline{\thetable}{#2}}}%
-     \addtocontents{lot}{\protect\addvspace{10\p@}}%
-  \fi}
-\makeatother
 %%%%%%%%%%%% END longtable support code
 
 
@@ -70,6 +47,29 @@
 
 % FIGURES
 %
+
+\makeatother
+% The following is repeated from the .cls file to make it appear in Markdown. The commands set the captions and also make the lof and lot double-spaced (unless it extends to more than one line, in which case it's single-spaced)
+\makeatletter
+\def\caption{\refstepcounter\@captype \@dblarg{\@caption\@captype}}
+\long\def\@caption#1[#2]#3{%
+  \par \par
+  \addcontentsline{\csname ext@#1\endcsname}{#1}%
+    {\protect\numberline{\csname the#1\endcsname.}{\ignorespaces #2}}%
+  \addtocontents{\csname ext@#1\endcsname}{\protect\addvspace{10\p@}}%
+  \begingroup
+    \@parboxrestore
+    \if@minipage
+      \@setminipage
+    \fi
+    \normalsize
+    \@makecaption{\csname fnum@#1\endcsname}{\ignorespaces #3}\par
+  \endgroup}
+\makeatother
+
+
+
+
 
 \title{MY THESIS OR DISSERTATION TITLE IN CAPITALS (WITH 48 CHARACTERS OR FEWER
 PER LINE) AS AN INVERTED PYRAMID}
@@ -206,50 +206,7 @@ If possible, break long tables into pieces. If you must, you can use the
 autest.tex. However, be aware that the \texttt{longtable} environment
 can create problems. In particular, a \texttt{longtable} does not float,
 so table numbering may end up out of order.
-\begin{center}
-\begin{longtable}{ll}\hline\hline
-\caption{Note that you must also place captions for longtables above your table.
-This is not handled for you by \LaTeX.}
-\\
-Title & Author \\ \hline
-TANSTAAFL & Milton Friedman \\
-Another Title & Another Author \\
-Another Title & Another Author \\
-Another Title & Another Author \\
-Another Title & Another Author \\
-Another Title & Another Author \\
-Another Title & Another Author \\
-Another Title & Another Author \\
-Another Title & Another Author \\
-Another Title & Another Author \\
-Another Title & Another Author \\
-Another Title & Another Author \\
-Another Title & Another Author \\
-Another Title & Another Author \\
-Another Title & Another Author \\
-Another Title & Another Author \\
-Another Title & Another Author \\
-Another Title & Another Author \\
-Another Title & Another Author \\
-Another Title & Another Author \\
-Another Title & Another Author \\
-Another Title & Another Author \\
-Another Title & Another Author \\
-Another Title & Another Author \\
-Another Title & Another Author \\
-Another Title & Another Author \\
-Another Title & Another Author \\
-Another Title & Another Author \\
-Another Title & Another Author \\
-Another Title & Another Author \\
-Another Title & Another Author \\
-Another Title & Another Author \\
-Another Title & Another Author \\
-Another Title & Another Author \\
-Oh Yes There Is & John Maynard Keynes \\ \hline
-\multicolumn{2}{c}{\small For better looking tables, try to avoid longtable.}
-\end{longtable}
-\end{center}
+
 \subsection{Long Section Names: First subsection of first section of
 introduction which is intentionally long to see what happens if it needs
 to break a
