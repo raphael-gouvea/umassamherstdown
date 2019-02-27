@@ -3,7 +3,7 @@
 Every dissertation should have an introduction.
 The introduction should introduce the concepts, background, and goals of the dissertation.
 
-## My First Section Title \newline With 48 or Fewer Characters Per Line {#introduction-first-section}
+## My First Section Title \newline With 48 or Fewer Characters Per Line
 
 This is the first sentence of the first paragraph of the first section. Cool, eh?
 This paragraph includes inline higher mathematics: $y=f(x)$.
@@ -19,7 +19,7 @@ Another sentence. Another sentence. Another sentence. Another sentence. Another 
 Here is a footnote.}
 
 
-\begin{table}[h]\centering
+\begin{table}[ht]\centering
 \caption{A normalsize table.
 Captions for tables must go above the table.
 Table captions must be single-spaced,
