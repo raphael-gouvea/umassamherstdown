@@ -1,147 +1,45 @@
 # DISCUSSION OF FINDINGS {#discussion-of-findings}
 
+## Section
 
-Below is a figure with \LaTeX generated graph:
-
-\begin{center}
-\begin{tikzpicture}[domain=0:5,scale=1,thick]
-\usetikzlibrary{calc}                                
-\usetikzlibrary{decorations.pathreplacing}          
-
-\def\dint{4.5}      
-\def\dslp{-0.5}    
-\def\sint{1.2}    
-\def\sslp{0.8}    
-
-\def\tax{1.5}    
-
-  \def\demand{\x,{\dslp*\x+\dint}}
-  \def\supply{\x,{\sslp*\x+\sint}}
-  \def\demandtwo{\x,{\dslp*\x+\dint+\dsh}}
-  \def\supplytwo{\x,{\sslp*\x+\sint+\ssh}}
-    \coordinate (ints) at ({(\sint-\dint)/(\dslp-\sslp)},{(\sint-\dint)/(\dslp-\sslp)*\sslp+\sint});
-    \coordinate (ep) at  (0,{(\sint-\dint)/(\dslp-\sslp)*\sslp+\sint});
-    \coordinate (eq) at  ({(\sint-\dint)/(\dslp-\sslp)},0);
-    \coordinate (dint) at (0,{\dint});
-    \coordinate (sint) at (0,{\sint});
-    \coordinate (teq) at  ({(\sint+\tax-\dint)/(\dslp-\sslp)},0);
-    \coordinate (tep) at  (0,{(\sint+\tax-\dint)/(\dslp-\sslp)*\sslp+\sint+\tax});
-    \coordinate (tint) at  ({(\sint+\tax-\dint)/(\dslp-\sslp)},{(\sint+\tax-\dint)/(\dslp-\sslp)*\sslp+\sint+\tax}); 
-    \coordinate (sep) at (0,{\sslp*(\sint+\tax-\dint)/(\dslp-\sslp)+\sint});
-    \coordinate (sen) at ({(\sint+\tax-\dint)/(\dslp-\sslp)},{\sslp*(\sint+\tax-\dint)/(\dslp-\sslp)+\sint});   
-     \draw[thick,color=blue] plot (\demand) node[right] {Demand};
-    \draw[thick,color=purple] plot (\supply) node[right] {Supply};
-    \draw[->] (0,0) -- (6.2,0) node[right] {$Q$};
-    \draw[->] (0,0) -- (0,6.2) node[above] {$P$};
-    \draw[decorate,decoration={brace},thick]  ($(sep)+(-0.8,0)$) -- ($(tep)+(-0.8,0)$) node[midway,below=-8pt,xshift=-18pt] {tax};
-    \draw[dashed] (tint) -- (teq) node[below] {$Q_T$};                  
-    \draw[dashed] (tint) -- (tep) node[left] {$P_d$};                       
-    \draw[dashed] (sen) -- (sep) node[left] {$P_s$};                        
-         
-\end{tikzpicture}
-\end{center}
-
-
-## Section {#discussion-of-findings-first-section}
-
-Figure \ref{au-logo} is a figure imported from file.
-
-\begin{figure}[h]
-\centering MY SECOND FIGURE
-\begin{center}
-    \includegraphics{figures/au_logo.png}
-\end{center}
-\caption{Second figure.}
-\label{au-logo}
+\begin{figure}
+\centering MY THIRD FIGURE
+\caption{First figure in second section.}
 \end{figure}
 
 
-Figure \ref{fig:Plot-Car-Data} is a figure created with R Markdown. Note that the name for figure code chunks cannot include any spaces or hyphens. Note also that the Latex code to refer to a figure differs slightly, depending on whether it is imported from file or created in Markdown.
 
-Because of the way the AU thesis class is set up, all figures appear at the top of the page. Since there is very little text in this template, the figure placement looks somewhat jumbled and non-sensical. That will disappear in your filled-in thesis. Text underneath figures is filled in bottom-to-top, which also looks weird when there is little text. That will also disappear in your filled-in thesis.
+### Subsection
 
-
-```{r Plot-Car-Data, echo=FALSE, fig.width=10, fig.height=4, fig.cap="Scatterplot for the Car Data"}
-data(mtcars)
-ggplot(mtcars, aes(x=wt, y=mpg)) + geom_point()
-```
+\begin{figure}
+\centering MY FOURTH FIGURE
+\caption{Second figure in second section.}
+\end{figure}
 
 
-
-### Subsection {#discussion-of-findings-first-section-first-subsection}
-
+#### Subsubsection
 
 
-#### Subsubsection {#discussion-of-findings-first-section-first-subsection-first-subsubsection}
+## Section
+
+\begin{figure}
+\centering MY FIFTH FIGURE
+\caption{First figure in third section.}
+\end{figure}
 
 
-## Section {#discussion-of-findings-second-section}
+### Subsection
 
+## Section
+### Subsection
+### Subsection
+## Section
+### Subsection
+### Subsection
 
+\begin{figure}
+\centering MY SIXTH FIGURE
+\caption{Second figure in third section.}
+\end{figure}
 
-
-### Subsection {#discussion-of-findings-second-section-first-subsection}
-
-## Section {#discussion-of-findings-third-section}
-### Subsection {#discussion-of-findings-third-section-first-subsection}
-### Subsection {#discussion-of-findings-third-section-second-subsection}
-
-## STATA to Latex {#discussion-of-findings-stata-to-latex}
-
-\begin{itemize}
-\item There is a specific package named outtex that facilitates the task of exporting directly from STATA to Latex given one's utility in doing so. 
-To install the outtex in STATA, make sure to type the following code in the STATA command zone, $\mapsto$ ssc install outtex. 
-\item Once the outtex package is successfully downloaded, run your regressions. In the following example I will provide a few examples of what outtex can do. 
-
-
-\item Example 1,  use the following data $\mapsto$ cs.dta, and perform the following regression, $\mapsto$ reg gdppc gdppc mrate5 literacy Muslim, afterward running the regression, simply run the following code $\mapsto$ outtex, and you will see the latex code appear, copy and paste this code in latex.
-\end{itemize}
-
-### Example 1 {#discussion-of-findings-stata-to-latex-example1}
-
-\begin{table}[htbp]\centering
- \caption{Estimation results : regress
-\label{tabresult regress}}
-\begin{tabular}{l c c }\hline\hline 
-\multicolumn{1}{c}
-{\textbf{Variable}}
- & {\textbf{Coefficient}}  & \textbf{(Std. Err.)} \\ \hline
-mrate5  &  -45.949  & (10.877)\\
-literacy  &  72.930  & (37.996)\\
-Muslim  &  2014.697  & (1121.978)\\
-Intercept  &  4014.449  & (3729.420)\\
-\hline
-\end{tabular}
-\end{table}
-
-
-
-### Example 2 {#discussion-of-findings-stata-to-latex-example2}
-
-Example(2), after running the same regression, simply perform the following code, $\mapsto$ outtex, level. You will see the latex code appear, copy and paste this code in latex.
-
-\def\onepc{$^{\ast\ast}$} \def\fivepc{$^{\ast}$}
-\def\tenpc{$^{\dag}$}
-\def\legend{\multicolumn{4}{l}{\footnotesize{Significance levels
-:\hspace{1em} $\dag$ : 10\% \hspace{1em}
-$\ast$ : 5\% \hspace{1em} $\ast\ast$ : 1\% \normalsize}}}
-\begin{table}[htbp]\centering
- \caption{Estimation results : regress
-\label{tabresult regress}}
-\begin{tabular}{l r @{} l c }\hline\hline 
-\multicolumn{1}{c}
-{\textbf{Variable}}
- & \multicolumn{2}{c}{\textbf{Coefficient}}  & \textbf{(Std. Err.)} \\ \hline
-mrate5  &  -45.949&\onepc  & (10.877)\\
-literacy  &  72.930&\tenpc  & (37.996)\\
-Muslim  &  2014.697&\tenpc  & (1121.978)\\
-Intercept  &  4014.449&  & (3729.420)\\
-\hline
-\end{tabular}
-\end{table}
-
-
-
-
-### Subsection {#discussion-of-findings-stata-to-latex-third-subsection}
-#### Subsubsection {#discussion-of-findings-stata-to-latex-third-subsection-first-subsubsection}
+#### Subsubsection

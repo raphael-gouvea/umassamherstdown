@@ -1,4 +1,4 @@
-# INTRODUCTION {#introduction}
+# INTRODUCTION
 
 Every dissertation should have an introduction.
 The introduction should introduce the concepts, background, and goals of the dissertation.
