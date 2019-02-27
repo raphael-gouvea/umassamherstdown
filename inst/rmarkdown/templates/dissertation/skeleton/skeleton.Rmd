@@ -23,7 +23,7 @@ output:
 #  eagledown::dissertation_word: default
 #  eagledown::dissertation_epub: default
 bibliography: bib/references.bib
-csl: sources/apa.csl
+csl: apa.csl
 ---
 
 ```{r include_packages, include = FALSE}

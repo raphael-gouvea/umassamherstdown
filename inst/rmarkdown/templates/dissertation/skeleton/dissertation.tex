@@ -1,0 +1,334 @@
+%%%%%%% The majority of notes and code is from the original AU template. Adjustments/Additions are indicated by SH (Simon Heuberger)
+%Last modified: 2018 Apr 30
+% SH modifications for Markdown made in February 2019
+
+\documentclass[12pt,econ]{authesis}
+% IMPORTANT NOTES:
+% 1) You MUST run LaTeX THREE times after runing BibTeX.
+% 2) Make sure that you have the LATEST version of the AUTHESIS class files
+%    before you hand in the final version of your thesis or dissertation.
+% 3) SPA students can uncomment the next two lines:
+%\renewcommand{\schoolorcollege}{School of Public Affairs}
+%\renewcommand{\deansigline}{\parbox{2.1in}{Dean of the School}}
+
+% \usepackage commands should go before the \begin{document}
+%required packages
+\usepackage{natbib}  % natbib citation style
+
+%%% SH begin
+% Removed \usepackage{url} and replaced it with the more functional {hyperref}
+\usepackage[hidelinks]{hyperref}
+%%% SH end
+
+%optional packages
+
+%CTABLE
+%\usepackage{ctable} %You should learn about ctable!!
+
+%ULEM
+% IF you use the 'cas' option instead of the preferred 'econ' option,
+% you MAY uncomment the following line.  (NOT recommended.)
+%\usepackage{ulem}
+
+
+%%% SH begin
+% The following packages are for the LaTeX generated graph
+\usepackage{lscape}
+\usepackage{float} % to float stargazer tables with argument [t] specified in the AU thesis class
+
+% FIGURES
+%
+
+\makeatother
+% The following is repeated from the .cls file to make it appear in Markdown. The commands set the captions and also make the lof and lot double-spaced (unless it extends to more than one line, in which case it's single-spaced)
+\makeatletter
+\def\caption{\refstepcounter\@captype \@dblarg{\@caption\@captype}}
+\long\def\@caption#1[#2]#3{%
+  \par \par
+  \addcontentsline{\csname ext@#1\endcsname}{#1}%
+    {\protect\numberline{\csname the#1\endcsname.}{\ignorespaces #2}}%
+  \addtocontents{\csname ext@#1\endcsname}{\protect\addvspace{10\p@}}%
+  \begingroup
+    \@parboxrestore
+    \if@minipage
+      \@setminipage
+    \fi
+    \normalsize
+    \@makecaption{\csname fnum@#1\endcsname}{\ignorespaces #3}\par
+  \endgroup}
+\makeatother
+
+
+
+
+
+\title{MY THESIS OR DISSERTATION TITLE IN CAPITALS (WITH 48 CHARACTERS OR FEWER
+PER LINE) AS AN INVERTED PYRAMID}
+\author{Will U. Finnish}
+\degreeyear{2525}
+\degree{Doctor of Philosophy}
+\chair{Professor Ivory Tower}
+\secondreader{Professor Ivory Tower}
+\thirdreader{Professor Mih Sing Cite}
+\fourthreader{Professor Ver Tigo}
+\degreefield{Introspective Empiricism}
+%%% SH end
+\begin{document}
+
+% Declarations for Front Matter
+%
+% IMPORTANT: IF A TITLE OR SUBTITLE EXCEEDS MORE THAN ONE LINE,
+%            THERE SHOULD ONLY BE  48 CHARACTERS PER LINE.
+%
+% The dissertation title must be capitalized for AU-CAS
+
+%%% SH begin
+% \title{}, \author{}, \degree{}, \fourthreader etc. are all specified in the .Rmd. Any changes to the number of readers will also need to be made in "authesis.cls", like in the original template
+%%% SH end
+
+% The following command makes the title page, it is duplicated to produce
+% two copies of cover page, as required by AU-CAS.
+
+\maketitle
+
+\maketitle
+
+% The following command makes the copyright page
+
+\copyrightpage
+
+% The frontmatter environment uses roman lower case page numbering. The
+% abstract, acknowledgements, table of contents, list of figures, and
+% list of tables are a part of this environment.
+\begin{frontmatter}
+
+% The Guide requires one numbered abstract page.
+% The 'abstractn' macro generates a numbered abstract page.
+% Do NOT use the 'abstract' macro, which generates an unnumbered, abstract page.
+% (NOTE: The Guide no longer requires two abstract pages, one numbered, one without numbers.)
+
+%%% SH begin
+\abstractn{This is an abstractn. It has a page number. (AU no longer wants you to
+provide an unnumbered abstract page.) The Guide says an abstract should
+not exceed 350 words. (If you do exceed this, then under the CAS option,
+the first page is numbered bottom center, and the rest are numbered top
+right.) This is an abstractn. This is an abstractn. This is an
+abstractn. This is an abstractn. This is an abstractn. This is an
+abstractn. This is an abstractn. This is an abstractn. This is an
+abstractn. This is an abstractn. This is an abstractn. This is an
+abstractn. This is an abstractn. This is an abstractn. This is an
+abstractn. This is an abstractn. This is an abstractn. This is an
+abstractn. This is an abstractn. This is an abstractn. This is an
+abstractn. This is an abstractn. This is an abstractn. This is an
+abstractn. This is an abstractn.}
+% The content of the abstract is specified in the .Rmd
+%%% SH end
+
+% Acknowledgements are optional. If you do not wish to include them,
+% simply do not include this command in your source.
+
+%%% SH begin
+\acknowledgements{I want to ``thank'' my committee, without whose ridiculous demands I
+would have graduated so very much faster.}
+% The content of the acknowledgements is specified in the .Rmd
+%%% SH end
+
+\tableofcontents
+
+\listoftables
+
+\listoffigures
+
+\end{frontmatter}
+%%% SH begin
+\chapter{INTRODUCTION}\label{introduction}
+
+Every dissertation should have an introduction. The introduction should
+introduce the concepts, background, and goals of the dissertation.
+
+\section{\texorpdfstring{My First Section Title \newline With 48 or
+Fewer Characters Per
+Line}{My First Section Title With 48 or Fewer Characters Per Line}}\label{my-first-section-title-with-48-or-fewer-characters-per-line}
+
+This is the first sentence of the first paragraph of the first section.
+Cool, eh? This paragraph includes inline higher mathematics: \(y=f(x)\).
+This paragraph also includes a display equation:
+\begin{equation}
+h = f \circ g
+\end{equation}
+Furthermore, this section includes a floating table.
+
+Another paragraph. Another sentence. Another sentence. Another sentence.
+Another sentence. Another sentence. Another sentence. Another sentence.
+Another sentence. Another sentence. Another sentence. Another sentence.
+Another sentence. Another sentence. Another sentence. \footnote{
+Here is a footnote.}
+\begin{table}[ht]\centering
+\caption{A normalsize table.
+Captions for tables must go above the table.
+Table captions must be single-spaced,
+and the code indicates that they should be formatted as such.}
+\begin{tabular}{lr}\hline\hline
+Title & Author \\ \hline
+TANSTAAFL & Milton Friedman \\
+Oh Yes There Is & John Maynard Keynes \\ \hline
+\multicolumn{2}{c}{\small Use ctable or booktab for better looking tables.}
+\end{tabular}
+\end{table}
+\subsection{Long Tables}\label{long-tables}
+
+If possible, break long tables into pieces. If you must, you can use the
+\texttt{longtable} package. Get the supporting code from the preamble of
+autest.tex. However, be aware that the \texttt{longtable} environment
+can create problems. In particular, a \texttt{longtable} does not float,
+so table numbering may end up out of order.
+
+\subsection{Long Section Names: First subsection of first section of
+introduction which is intentionally long to see what happens if it needs
+to break a
+line}\label{long-section-names-first-subsection-of-first-section-of-introduction-which-is-intentionally-long-to-see-what-happens-if-it-needs-to-break-a-line}
+
+Another approach to fitting large tables is to shrink the fontsize. We
+provide the \texttt{scriptsizetabluar} environment to help you with
+this. Note that you can have a different caption in your List of Tables
+than in the text, if you wish.
+\begin{table}\centering
+\caption[Alternative caption for List of Tables]{A table using scriptsizetabluar.}
+\begin{scriptsizetabular}{lr}\hline\hline
+Title & Author \\ \hline
+TANSTAAFL & Milton Friedman \\
+Oh Yes There Is & John Maynard Keynes \\ \hline
+\end{scriptsizetabular}
+\end{table}
+\subsubsection{Subsubsection for test
+purposes}\label{subsubsection-for-test-purposes}
+
+Another paragraph. Another sentence. Another sentence. Another sentence.
+Another sentence. Another sentence. Another sentence. Another sentence.
+Another sentence. Another sentence. Another sentence. Another sentence.
+Another sentence. Another sentence. Another sentence.
+
+\chapter{PREVIOUS WORK}\label{previous-work}
+
+Some other research was once performed.
+
+\section{Section}\label{section}
+
+Some was good and some was bad.
+\begin{figure}
+\centering MY FIRST FIGURE
+\caption{Figure caption must be below figure.}
+\end{figure}
+\subsection{Subsection}\label{subsection}
+
+Some was neither good or bad.
+\begin{figure}
+\centering MY SECOND FIGURE
+\caption{Second figure.}
+\end{figure}
+\subsubsection{Subsubsection}\label{subsubsection}
+
+Surely mine will be better. Here is a bulleted list of reasons why.
+\begin{itemize}
+\item Reason 1.
+Some people hate the way test wraps in our bulleted lists,
+but that is what the Guide says we have to do---apparently based on Turabian.
+You can argue with CAS if you wish \dots
+\item Reason 2.
+\item Reason 3.
+\item Reason 4.
+\end{itemize}
+\chapter{DISCUSSION OF FINDINGS}\label{discussion-of-findings}
+
+\section{Section}\label{section-1}
+\begin{figure}
+\centering MY THIRD FIGURE
+\caption{First figure in second section.}
+\end{figure}
+\subsection{Subsection}\label{subsection-1}
+\begin{figure}
+\centering MY FOURTH FIGURE
+\caption{Second figure in second section.}
+\end{figure}
+\subsubsection{Subsubsection}\label{subsubsection-1}
+
+\section{Section}\label{section-2}
+\begin{figure}
+\centering MY FIFTH FIGURE
+\caption{First figure in third section.}
+\end{figure}
+\subsection{Subsection}\label{subsection-2}
+
+\section{Section}\label{section-3}
+
+\subsection{Subsection}\label{subsection-3}
+
+\subsection{Subsection}\label{subsection-4}
+
+\section{Section}\label{section-4}
+
+\subsection{Subsection}\label{subsection-5}
+
+\subsection{Subsection}\label{subsection-6}
+\begin{figure}
+\centering MY SIXTH FIGURE
+\caption{Second figure in third section.}
+\end{figure}
+\subsubsection{Subsubsection}\label{subsubsection-2}
+
+\chapter{CONCLUSION}\label{conclusion}
+
+All is well that ends.
+
+This will end soon. This will end soon. This will end soon. This will
+end soon. This will end soon. This will end soon. This will end soon.
+This will end soon. This will end soon. This will end soon. This will
+end soon. This will end soon. This will end soon. This will end soon.
+This will end soon. This will end soon. This will end soon. This will
+end soon. This will end soon. This will end soon. This will end soon.
+This will end soon. This will end soon. This will end soon. This will
+end soon. This will end soon. This will end soon. This will end soon.
+This will end soon. This will end soon. This will end soon. This will
+end soon. This will end soon. This will end soon. This will end soon.
+This will end soon. This will end soon. This will end soon. This will
+end soon. This will end soon. This will end soon. This will end soon.
+This will end soon. This will end soon. This will end soon. This will
+end soon. This will end soon. This will end soon. This will end soon.
+This will end soon.
+
+This will end soon. This will end soon. This will end soon. This will
+end soon. This will end soon. This will end soon. This will end soon.
+This will end soon. This will end soon. This will end soon. This will
+end soon. This will end soon. This will end soon. This will end soon.
+This will end soon. This will end soon. This will end soon. This will
+end soon. This will end soon. This will end soon. This will end soon.
+This will end soon. This will end soon. This will end soon. This will
+end soon. This will end soon. This will end soon. This will end soon.
+This will end soon. This will end soon. This will end soon. This will
+end soon. This will end soon. This will end soon. This will end soon.
+This will end soon. This will end soon. This will end soon. This will
+end soon. This will end soon. This will end soon. This will end soon.
+This will end soon. This will end soon. This will end soon. This will
+end soon. This will end soon. This will end soon. This will end soon.
+This will end soon.
+
+See?
+
+\appendix
+
+\chapter{SOME ANCILLARY STUFF}\label{some-ancillary-stuff}
+
+\chapter{SOME MORE ANCILLARY STUFF}\label{some-more-ancillary-stuff}
+
+\chapter*{REFERENCES}\label{references}
+\addcontentsline{toc}{chapter}{REFERENCES}
+
+\noindent
+
+\ssp
+% This loads all chapters up to and including the Conclusion, the content of which is created in the respective .Rmd files
+% The appendix and references are loaded in separate .Rmd files
+%%% SH end
+
+\end{document}
+
