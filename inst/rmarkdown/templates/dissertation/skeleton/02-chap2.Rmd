@@ -1,0 +1,35 @@
+# PREVIOUS WORK
+
+Some other research was once performed.
+
+## Section
+
+Some was good and some was bad.
+
+\begin{figure}
+\centering MY FIRST FIGURE
+\caption{Figure caption must be below figure.}
+\end{figure}
+
+### Subsection
+
+Some was neither good or bad.
+
+\begin{figure}
+\centering MY SECOND FIGURE
+\caption{Second figure.}
+\end{figure}
+
+#### Subsubsection
+
+Surely mine will be better.
+Here is a bulleted list of reasons why.
+\begin{itemize}
+\item Reason 1.
+Some people hate the way test wraps in our bulleted lists,
+but that is what the Guide says we have to do---apparently based on Turabian.
+You can argue with CAS if you wish \dots
+\item Reason 2.
+\item Reason 3.
+\item Reason 4.
+\end{itemize}

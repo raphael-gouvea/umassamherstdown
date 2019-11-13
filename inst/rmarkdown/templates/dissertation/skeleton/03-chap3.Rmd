@@ -1,0 +1,45 @@
+# DISCUSSION OF FINDINGS {#discussion-of-findings}
+
+## Section
+
+\begin{figure}
+\centering MY THIRD FIGURE
+\caption{First figure in second section.}
+\end{figure}
+
+
+
+### Subsection
+
+\begin{figure}
+\centering MY FOURTH FIGURE
+\caption{Second figure in second section.}
+\end{figure}
+
+
+#### Subsubsection
+
+
+## Section
+
+\begin{figure}
+\centering MY FIFTH FIGURE
+\caption{First figure in third section.}
+\end{figure}
+
+
+### Subsection
+
+## Section
+### Subsection
+### Subsection
+## Section
+### Subsection
+### Subsection
+
+\begin{figure}
+\centering MY SIXTH FIGURE
+\caption{Second figure in third section.}
+\end{figure}
+
+#### Subsubsection

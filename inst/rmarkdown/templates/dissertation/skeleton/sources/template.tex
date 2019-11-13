@@ -1,0 +1,162 @@
+%%%%%%% The majority of notes and code is from the original AU template. Adjustments/Additions are indicated by SH (Simon Heuberger)
+%Last modified: 2018 Apr 30
+% SH modifications for Markdown made in February 2019
+
+\documentclass[12pt,econ]{sources/authesis}
+% IMPORTANT NOTES:
+% 1) You MUST run LaTeX THREE times after runing BibTeX.
+% 2) Make sure that you have the LATEST version of the AUTHESIS class files
+%    before you hand in the final version of your thesis or dissertation.
+% 3) SPA students can uncomment the next two lines:
+%\renewcommand{\schoolorcollege}{School of Public Affairs}
+%\renewcommand{\deansigline}{\parbox{2.1in}{Dean of the School}}
+
+% \usepackage commands should go before the \begin{document}
+%required packages
+\usepackage{natbib}  % natbib citation style
+
+%%% SH begin
+% Removed \usepackage{url} and replaced it with the more functional {hyperref}
+\usepackage[hidelinks]{hyperref}
+%%% SH end
+
+%optional packages
+
+%CTABLE
+%\usepackage{ctable} %You should learn about ctable!!
+
+%ULEM
+% IF you use the 'cas' option instead of the preferred 'econ' option,
+% you MAY uncomment the following line.  (NOT recommended.)
+%\usepackage{ulem}
+
+
+%%% SH begin
+% Removed the longtable environment and the longtable in chapter 01 of the template because it is very bad practice
+% The university itself strongly advises against using longtables in the template and only provides it as a last resort
+
+% The following packages are for the LaTeX generated graph
+\usepackage{lscape}
+\usepackage{float} % to float stargazer tables with argument [t] specified in the AU thesis class
+
+% FIGURES
+%
+$if(graphics)$
+\usepackage{graphicx}
+% The following generates all images so they have a width \maxwidth. This means that they will get their normal width if they fit onto the page, but are scaled down if they would overflow the margins:
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth
+\else\Gin@nat@width\fi}
+\makeatother
+\let\Oldincludegraphics\includegraphics
+\renewcommand{\includegraphics}[1]{\Oldincludegraphics[width=\maxwidth]{#1}}
+% The following is repeated from the .cls file to make it appear in Markdown. The commands set the figure float, count etc.
+\makeatletter
+\def\fps@figure{t} 
+\def\ftype@figure{1}
+\def\ext@figure{lof}
+\def\fnum@figure{\figurename~\thefigure}
+\def\figure{\@float{figure}}
+\let\endfigure\end@float
+\@namedef{figure*}{\@dblfloat{figure}}
+\@namedef{endfigure*}{\end@dblfloat}
+\makeatother
+$endif$
+
+% The following is repeated from the .cls file to make it appear in Markdown. The commands set the captions and also make the lof and lot double-spaced (unless it extends to more than one line, in which case it's single-spaced)
+\makeatletter
+\def\caption{\refstepcounter\@captype \@dblarg{\@caption\@captype}}
+\long\def\@caption#1[#2]#3{%
+  \par \par
+  \addcontentsline{\csname ext@#1\endcsname}{#1}%
+    {\protect\numberline{\csname the#1\endcsname.}{\ignorespaces #2}}%
+  \addtocontents{\csname ext@#1\endcsname}{\protect\addvspace{10\p@}}%
+  \begingroup
+    \@parboxrestore
+    \if@minipage
+      \@setminipage
+    \fi
+    \normalsize
+    \@makecaption{\csname fnum@#1\endcsname}{\ignorespaces #3}\par
+  \endgroup}
+\makeatother
+
+
+\title{$title$}
+\author{$author$}
+\degreeyear{$degreeyear$}
+\degree{$degree$}
+\chair{$chair$}
+\secondreader{$secondreader$}
+\thirdreader{$thirdreader$}
+\fourthreader{$fourthreader$}
+\degreefield{$degreefield$}
+%%% SH end
+
+\begin{document}
+
+% Declarations for Front Matter
+%
+% IMPORTANT: IF A TITLE OR SUBTITLE EXCEEDS MORE THAN ONE LINE,
+%            THERE SHOULD ONLY BE  48 CHARACTERS PER LINE.
+%
+% The dissertation title must be capitalized for AU-CAS
+
+%%% SH begin
+% \title{}, \author{}, \degree{}, \fourthreader etc. are all specified in the .Rmd. Any changes to the number of readers will also need to be made in "authesis.cls", like in the original template
+%%% SH end
+
+% The following command makes the title page, it is duplicated to produce
+% two copies of cover page, as required by AU-CAS.
+
+\maketitle
+
+\maketitle
+
+% The following command makes the copyright page
+
+\copyrightpage
+
+\begin{frontmatter}
+% The Guide requires one numbered abstract page.
+% The 'abstractn' macro generates a numbered abstract page.
+% Do NOT use the 'abstract' macro, which generates an unnumbered, abstract page.
+% (NOTE: The Guide no longer requires two abstract pages, one numbered, one without numbers.)
+
+%%% SH begin
+\abstractn{$abstract$}
+% The content of the abstract is specified in the .Rmd
+%%% SH end
+
+
+% Acknowledgements are optional. If you do not wish to include them,
+% simply do not include this command in your source.
+
+%%% SH begin
+\acknowledgements{$acknowledgements$}
+% The content of the acknowledgements is specified in the .Rmd
+%%% SH end
+
+\listoftables
+
+\listoffigures
+
+%%% SH begin
+% lot and lof moved before the toc because \setcounter{page}{1} in the frontmatter environment for some reason messes up the toc page numbering when they come after the toc. This is cleared and acceptable with AU admin
+%%% SH end
+
+\tableofcontents
+
+\end{frontmatter}
+
+
+
+%%% SH begin
+$body$
+% This loads all chapters up to and including the Conclusion, the content of which is created in the respective .Rmd files
+% The appendix and references are loaded in separate .Rmd files
+%%% SH end
+
+\end{document}
+
+

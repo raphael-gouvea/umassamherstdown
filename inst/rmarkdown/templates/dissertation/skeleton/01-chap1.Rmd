@@ -1,0 +1,58 @@
+# INTRODUCTION
+
+Every dissertation should have an introduction.
+The introduction should introduce the concepts, background, and goals of the dissertation.
+
+## My First Section Title \newline With 48 or Fewer Characters Per Line
+
+This is the first sentence of the first paragraph of the first section. Cool, eh?
+This paragraph includes inline higher mathematics: $y=f(x)$.
+This paragraph also includes a display equation:
+\begin{equation}
+h = f \circ g
+\end{equation}
+Furthermore, this section includes a floating table.
+
+Another paragraph.
+Another sentence. Another sentence. Another sentence. Another sentence. Another sentence. Another sentence. Another sentence. Another sentence. Another sentence. Another sentence. Another sentence. Another sentence. Another sentence. Another sentence.
+\footnote{
+Here is a footnote.}
+
+
+\begin{table}[ht]\centering
+\caption{A normalsize table.
+Captions for tables must go above the table.
+Table captions must be single-spaced,
+and the code indicates that they should be formatted as such.}
+\begin{tabular}{lr}\hline\hline
+Title & Author \\ \hline
+TANSTAAFL & Milton Friedman \\
+Oh Yes There Is & John Maynard Keynes \\ \hline
+\multicolumn{2}{c}{\small Use ctable or booktab for better looking tables.}
+\end{tabular}
+\end{table}
+
+
+
+### Long Section Names: First subsection of first section of introduction which is intentionally long to see what happens if it needs to break a line
+
+
+Another approach to fitting large tables is to shrink the fontsize.
+We provide the \texttt{scriptsizetabluar} environment to help you with this.
+Note that you can have a different caption in your List of Tables than
+in the text, if you wish.
+
+\begin{table}\centering
+\caption[Alternative caption for List of Tables]{A table using scriptsizetabluar.}
+\begin{scriptsizetabular}{lr}\hline\hline
+Title & Author \\ \hline
+TANSTAAFL & Milton Friedman \\
+Oh Yes There Is & John Maynard Keynes \\ \hline
+\end{scriptsizetabular}
+\end{table}
+
+#### Subsubsection for test purposes
+
+Another paragraph.
+Another sentence. Another sentence. Another sentence. Another sentence. Another sentence. Another sentence. Another sentence. Another sentence. Another sentence. Another sentence. Another sentence. Another sentence. Another sentence. Another sentence. 
+
