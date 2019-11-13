@@ -1,120 +1,155 @@
-# thesisdown
+# eagledown <img src="inst/rmarkdown/templates/dissertation/skeleton/figures/au_logo_small.png" align="right" />
 
-This project was inspired by the [bookdown](https://github.com/rstudio/bookdown) package and is an updated version of my Senior Thesis template in the `reedtemplates` package [here](https://github.com/ismayc/reedtemplates). It was originally designed to only work with the Reed College LaTeX template, but has since been adapted to work with many different institutions by many different individuals. Check out the **Customizing thesisdown to your institution** section below for examples.
+This GitHub repository provides an R Markdown template for writing a PhD Dissertation at American University based on the [AU LaTeX dissertation template](https://subversion.american.edu/aisaac/authesis/authesis.htm?\_ga=2.14895541.2081593173.1536210526-342468785.1514821568) and the R Bookdown package. The AU LaTeX template itself uses the [AU dissertation class](https://subversion.american.edu/aisaac/authesis/authesis.cls). The template has been modified to be readable in R Markdown. Other than setting the respective folder paths for the required .clo files, the dissertation class has not been modified. 
 
-Currently, the PDF and gitbook versions are fully-functional.  The word and epub versions are developmental, have no templates behind them, and are essentially calls to the appropriate functions in bookdown.
+This project was inspired by by the [thesisdown](https://github.com/ismayc/thesisdown), [huskydown](https://github.com/benmarwick/huskydown) and [bookdown](https://github.com/rstudio/bookdown) packages. Unlike `thesisdown` and `huskydown`, which provide instructions how to work with `bookdown` and `markdown` as the substantive template content, `eagledown` provides the exact wording of the AU LaTeX dissertation template. Rendering `eagledown` thus replicates the content found in the AU LaTeX dissertation template. I made this choice to make the template immediately applicable to AU students' needs. 
+If you are new to working with `bookdown` and `rmarkdown`, please read over the excellent documentation provided by `thesisdown`, `huskydown` and in the [bookdown book](https://bookdown.org/yihui/bookdown/).
 
-If you are new to working with `bookdown`/`rmarkdown`, please read over the documentation available in the `gitbook` template at https://thesisdown.netlify.com/.  This is also available below at https://ismayc.github.io/thesisdown_book.
-
-The current output for the four versions is here:
-- [PDF](https://github.com/ismayc/thesisdown_book/blob/gh-pages/thesis.pdf) (Generating LaTeX file is available [here](https://github.com/ismayc/thesisdown_book/blob/gh-pages/thesis.tex) with other files at in the [book directory](https://github.com/ismayc/thesisdown_book/tree/gh-pages).)
-- [Word](https://github.com/ismayc/thesisdown_book/blob/gh-pages/thesis.docx)
-- [ePub](https://github.com/ismayc/thesisdown_book/blob/gh-pages/thesis.epub)
-- [gitbook](https://ismayc.github.io/thesisdown_book)
-
-Under the hood, the Reed College LaTeX template is used to ensure that documents conform precisely to submission standards. At the same time, composition and formatting can be done using lightweight [markdown](https://rmarkdown.rstudio.com/authoring_basics.html) syntax, and **R** code and its output can be seamlessly included using [rmarkdown](https://rmarkdown.rstudio.com).
-
-## Customizing thesisdown to your institution
-
-In an ideal world, this package would support a variety of different LaTeX templates from a wide range of institutions and we'd love to get it there at some point. Until that time, realize that this was designed to only work with the Reed College LaTeX template but others have adapted it to work with their institutions.  Here are some that have customized it to fit their needs.  It is recommended you review how they changed the files by comparing their repositories to this one and then make tweaks to yours as needed.  Feel free to file an issue on this repo if you have questions/troubles.
-
-Have you created a thesisdown template for your institution and would like to have it included here? Make a PR [similar to the commit done to include `jayhawkdown`](https://github.com/ismayc/thesisdown/commit/760113a076767cf67b6e22339e398bd3f15305c5). I'll review it and merge it in. Let's keep the list going!
+The focus of this project lies heavily on the PDF version, since this is the only format that the AU administration accepts. The PDF version is fully functional. The word, gitbook and epub versions are currently mere placeholders and have no templates behind them. I might develop them at a later time if needed/wanted.
 
 
-|College/University                              |Repository                                                                                    |Based on                                                        |
-|:---------------------------------------|:---------------------------------------------------------------------------------------------|:---------------------------------------------------------------|
-|American University                    |[SimonHeuberger/eagledown](https://github.com/SimonHeuberger/eagledown)                     |[benmarwick/huskydown](https://github.com/benmarwick/huskydown) |
-|Brock University                        |[brentthorne/brockdown](https://github.com/brentthorne/brockdown)                             |[zkamvar/beaverdown](https://github.com/zkamvar/beaverdown)     |
-|Duke University                         |[mine-cetinkaya-rundel/thesisdowndss](https://github.com/mine-cetinkaya-rundel/thesisdowndss) |[ismayc/thesisdown](https://github.com/ismayc/thesisdown)       |
-|Humboldt University of Berlin          |[phister/huwiwidown](https://github.com/phister/huwiwidown)  |[ismayc/thesisdown](https://github.com/ismayc/thesisdown) |
-|Kansas State University                 |[emraher/wildcatdown](https://github.com/emraher/wildcatdown)                                 |[benmarwick/huskydown](https://github.com/benmarwick/huskydown) |
-|Massachusetts Institute of Technology                |[ratatstats/manusdown](https://github.com/ratatstats/manusdown)                                 |[ismayc/thesisdown](https://github.com/ismayc/thesisdown)  |
-|Oregon State University                 |[zkamvar/beaverdown](https://github.com/zkamvar/beaverdown)                                   |[ismayc/thesisdown](https://github.com/ismayc/thesisdown)       |
-|Oxford University                       |[davidplans/oxdown](https://github.com/davidplans/oxdown)                                     |[ismayc/thesisdown](https://github.com/ismayc/thesisdown)       |
-|Southampton University                  |[dr-harper/sotonthesis](https://github.com/dr-harper/sotonthesis)                             |[ismayc/thesisdown](https://github.com/ismayc/thesisdown)       |
-|Stanford University                     |[mhtess/treedown](https://github.com/mhtess/treedown)                                         |[ismayc/thesisdown](https://github.com/ismayc/thesisdown)       |
-|University College London               |[benyohaiphysics/thesisdownUCL](https://github.com/benyohaiphysics/thesisdownUCL)             |[ismayc/thesisdown](https://github.com/ismayc/thesisdown)       |
-|University of California, Davis         |[ryanpeek/aggiedown](https://github.com/ryanpeek/aggiedown)                                   |[DanOvando/gauchodown](https://github.com/DanOvando/gauchodown) |
-|University of California, Santa Barbara |[DanOvando/gauchodown](https://github.com/DanOvando/gauchodown)                               |[benmarwick/huskydown](https://github.com/benmarwick/huskydown) |
-|University of Florida                   |[ksauby/thesisdownufl](https://github.com/ksauby/thesisdownufl)                               |[ismayc/thesisdown](https://github.com/ismayc/thesisdown)       |
-|University of Freiburg                  |[vivekbhr/doctorRbite](https://github.com/vivekbhr/doctorRbite)                               |[ismayc/thesisdown](https://github.com/ismayc/thesisdown)       |
-|University of Kansas                    |[wjakethompson/jayhawkdown](https://github.com/wjakethompson/jayhawkdown)                     |[ismayc/thesisdown](https://github.com/ismayc/thesisdown)       |
-|University of Minnesota                 |[zief0002/qmedown](https://github.com/zief0002/qmedown)                                       |[ismayc/thesisdown](https://github.com/ismayc/thesisdown)       |
-|University of New South Wales           |[rensa/unswthesisdown](https://github.com/rensa/unswthesisdown)                               |[ismayc/thesisdown](https://github.com/ismayc/thesisdown)       |
-|University of Salzburg                  |[irmingard/salzburgthesisdown](https://github.com/irmingard/salzburgthesisdown)               |[ismayc/thesisdown](https://github.com/ismayc/thesisdown)       |
-|University of Washington                |[benmarwick/huskydown](https://github.com/benmarwick/huskydown)                               |[ismayc/thesisdown](https://github.com/ismayc/thesisdown)       |
+## Required external installations
 
-### Using thesisdown from Chester's GitHub
+In order to compile PDF documents using use **R**, you need to have R, Pandoc, and LaTeX installed. 
 
-Special thanks to [Ben Marwick](https://github.com/benmarwick) for helping to add a lot more clarity to the directions below from the [README of his spin-off `huskydown` package](https://github.com/benmarwick/huskydown/blob/master/README.md).
+You can download the respective platform-dependent version of R [here for Mac](https://cran.r-project.org/bin/macosx/) and [here for Windows](https://cran.r-project.org/bin/windows/).
 
-Using **thesisdown** has some prerequisites which are described below. To compile PDF documents using **R**, you are going to need to have LaTeX installed. By far the easiest way to install LaTeX on any platform is with the [tinytex](https://yihui.name/tinytex/) R package:
+You can download RStudio [here](http://www.rstudio.com/products/rstudio/download/). RStudio comes with Pandoc already installed. 
 
-```{r}
+The easiest way to install LaTeX on any platform is through [`tinytex`](https://yihui.name/tinytex/):
+
+```
 install.packages(c('tinytex', 'rmarkdown'))
 tinytex::install_tinytex()
 # after restarting RStudio, confirm that you have LaTeX with 
-tinytex:::is_tinytex() 
+tinytex:::is_tinytex()
 ```
 
-You may need to install a few extra LaTeX packages on your first attempt to knit as well. 
+If you'd rather install the full-fledged version of LaTeX (my personal preference), you can download the respective platform-dependent version [here](https://www.latex-project.org/get/). Note that the full version tends to be very large, in the realm of several GB.
 
-To use **thesisdown** from [RStudio](http://www.rstudio.com/products/rstudio/download/):
 
-1) Ensure that you have already installed LaTeX and the fonts described above, and are using the latest version of [RStudio](http://www.rstudio.com/products/rstudio/download/). You can use `thesisdown` without RStudio. For example, you can write the Rmd files in your favourite text editor (e.g. [Atom](https://atom.io/), [Notepad++](https://notepad-plus-plus.org/)). But RStudio is probably the easiest tool for writing both R code and text in your thesis. It also provides a nice way to build your thesis while editing. We'll proceed assuming that you have decided to use the RStudio workflow.
+## Installing eagledown
 
-2) Install the **bookdown** and **thesisdown** packages: 
+The easiest way to use **eagledown** is within [RStudio](http://www.rstudio.com/products/rstudio/download/):
+
+1) Install the **bookdown** and **eagledown** packages (and previously **devtools**, **dplyr**, and **ggplot2**, since those are needed by the template content): 
+
+```
+install.packages("devtools", repos = "http://cran.rstudio.org")
+install.packages("dplyr")
+install.packages("ggplot2")
+devtools::install_github("rstudio/bookdown")
+devtools::install_github("SimonHeuberger/eagledown")
+```
+
+2) Open RStudio and select File -> New File -> R Markdown... 
+
+3) Choose 'From template', then choose 'AU-Dissertation. 
+
+4) Browse to the folder **Location** of your choice and provide a **Name**. **Name** will be the name of the folder where your dissertation will be stored. Let us use the name "actual_dissertation" here.
+
+If you are not using RStudio, run this line in your R console to create a new PhD dissertation from the template:
 
 ```r
-if (!require("remotes")) install.packages("remotes", repos = "http://cran.rstudio.org")
-remotes::install_github("rstudio/bookdown")
-remotes::install_github("ismayc/thesisdown")
+rmarkdown::draft('actual_dissertation.Rmd', template = 'dissertation', package = 'eagledown', create_dir = TRUE)
 ```
 
-3) Use the **New R Markdown** dialog to select **Thesis**:
+## Components of eagledown
 
-    ![New R Markdown](thesis_rmd.png)
+### `_book/`
 
-    Note that this will currently only **Knit** if you name the directory `index` as shown above. This guarantees that `index.html` is generated correctly for the Gitbook version of the thesis.
+This folder contains the files `dissertation.tex` and `dissertation.pdf` (after rendering). The files names are specified in `_bookdown.yml` (see below). `dissertation.pdf` is your dissertation as a PDF.
 
-4) After choosing which type of output you'd like in the YAML at the top of index.Rmd, **Knit** the `index.Rmd` file to get the book in PDF or HTML formats.
+### `_bookdown_files/`
 
-### Day-to-day writing of your thesis 
-
-You need to edit the individual chapter R Markdown files to write your thesis. It's recommended that you version control your thesis using GitHub if possible. RStudio can also easily sync up with GitHub to make the process easier. While writing, you should `git commit` your work frequently, after every major activity on your thesis. For example, every few paragraphs or section of text, and after major step of analysis development. You should `git push` at the end of each work session before you leave your computer or change task. For gentle novice-friendly guide to getting starting with using Git with R and RStudio, see <http://happygitwithr.com/>.
-
-## Rendering
-
-To render your thesis into a PDF, open `index.Rmd` in RStudio and then click the "knit" button. To change the output formats between PDF, gitbook and Word , look at the `output:` field in `index.Rmd` and comment-out the formats you don't want.
-
-The PDF file of your thesis will be deposited in the `_book/` directory, by default.
-
-## Components
-
-The following components are ones you should edit to customize your thesis:
+This folder contains the folders `dissertation_cache` and `dissertation_files`. This is where files produced by rendering are saved.
 
 ### `_bookdown.yml`
 
-This is the main configuration file for your thesis. It determines what Rmd files are included in the output, and in what order. Arrange the order of your chapters in this file and ensure that the names match the names in your folders. 
+This file specifies the order of `.Rmd` files in your dissertation. It is the main configuration file for your dissertation. It determines what Rmd files are included in the output, and in what order. Arrange the order of your chapters in this file and ensure that the names match the names in your folders. The current order is: `.Rmd`, `01-chap1.Rmd`, `02-chap2.Rmd`, `03-chap3.Rmd`, `04-conclusion.Rmd`, `98-appendix.Rmd`, `99-references.Rmd` (as specified by the AU LaTeX template, references come at the end, after the appendix). You can also adjust the name of the resulting dissertation PDF. It is currently set to `dissertation`. The resulting PDF is saved in the `_book` folder (see above).
 
-### `index.Rmd`
+### `01-chap1.Rmd`, `02-chap2.Rmd`, `03-chap3.Rmd`, `04-conclusion.Rmd`
 
-This file contains all the meta information that goes at the beginning of your
-document. You'll need to edit this to put your name on the first page, the title of your thesis, etc.
+These are the `.Rmd` files for the first four chapters in your dissertation (with the first being the Introduction and the last being the Conclusion). Write your content in each respective one. You do not kneed to knit these chapters individually. Simply write your content and save the file.
 
-### `01-chap1.Rmd`, `02-chap2.Rmd`, etc.
+### `98-appendix.Rmd`
 
-These are the Rmd files for each chapter in your dissertation. Write your thesis in these. If you're writing in RStudio, you may find the [wordcount addin](https://github.com/benmarwick/wordcountaddin) useful for getting word counts and readability statistics in R Markdown documents.
+This file contains the content of the Appendix. Since the AU dissertation class requires the Appendix to be named differently, this chapter is separate from the other `.Rmd` chapters. Write your Appendix content here. You do not kneed to knit these chapters individually. Simply write your content and save the file.
+
+### `99-references.Rmd`
+
+This file contains the heading for the Bibliography. This chapter is unnumbered. The actual Bibliography will be filled in automatically when rendering (see below). You do not need to write any content in this file.
+
+### `actual_dissertation.Rmd`
+
+This file knits all `.Rmd` files together into one PDF. It contains all the meta information that goes at the beginning of your dissertation, such as your name, degree, and your dissertation chair. This is also where you write the content of the Abstract and the Acknowledgements (if you want to include those), and where you set the location of the `.csl` and `.bib` files. This file also loads the R packages required to render **eagledown**.
 
 ### `bib/`
 
-Store your bibliography (as bibtex files) here. We recommend using the [citr addin](https://github.com/crsh/citr) and [Zotero](https://www.zotero.org/) to efficiently manage and insert citations. 
+This folder stores the bibliograhpy file (here `references.bib`).
 
-### `csl/`
+### `figures/`
 
-Specific style files for bibliographies should be stored here. A good source for
-citation styles is https://github.com/citation-style-language/styles#readme
+This folder contains the figures loaded by the `.Rmd` files (here `pic1.png`, i.e. the AU logo)
 
-### `figure/` and `data/`
+### `sources/`
 
-Store your figures and data here and reference them in your R Markdown files. See the [bookdown book](https://bookdown.org/yihui/bookdown/) for details on cross-referencing items using R Markdown.
+This folder contains the template files `apa.csl`, `auecon.clo`, `aut12.clo`, `authesis.cls`, and `template.tex`. The first three have not been modified. The last has been modified to work in R Markdown.
+
+
+
+## Rendering your dissertation
+
+Open `_bookdown.yml` and change `index.Rmd` to the folder name you have given in step (4) in the **eagledown** installation above. If you have named the folder "actual_dissertation", then change `index.Rmd` to `actual_dissertation.Rmd`.
+
+Open `actual_dissertation.Rmd` in RStudio and then click the "Knit" button. This will produce `dissertation.pdf`, which will be saved in the book/ folder.
+
+If you're not using RStudio, you can use the following from the R console, assuming your have set the `actual_dissertation/` directory as your working directory:
+
+```r
+bookdown::render_book('actual_dissertation.Rmd', eagledown::dissertation_pdf(latex_engine = 'xelatex'))
+```
+
+## Day-to-day writing of your dissertation
+
+You need to edit the individual chapter `.Rmd` files to write your dissertation. You also need to provide your Bibliography `.bib` file in the /bib folder. If you need any additional LaTeX packages that are not currently loaded, simply add them to `template.tex` using the command `usepackage{}`. Other than that, you do not need to edit any other files.
+
+
+## Changes/Adjustments made to the AU LaTeX dissertation template
+
+I made several changes/adjustment to the AU LaTeX dissertation template in order to improve the display and to fully utilize the power of R Markdown.
+
+(1) Chapter 1: I added an R code chunk that creates a table using the R package `stargazer`. `stargazer` in R Markdown allows you to directly produce tables in the resulting PDF without actually having to modify the LaTeX table code. It is all done within the `stargazer` commands. The created table follows the same layout specifications as all other tables.
+
+(2) Chapter 2: I added a few sentences to show how to link to an equation and to explain why it is currently not possible to do math equations with $$ markdown commands to produce an AU dissertation. I also added one sentence to explain why it is better to use the LaTeX `itemize` environment instead of markdown lists for your dissertation.
+
+(3) Chapter 3: I deleted empty figure place-holders (First figure in second section, Second figure in second section, First figure in third section, Second figure in third section) because they appeared jumbled up. The AU dissertation class specifies all figures to appear at the top of the page. Without any accompnaying text, the placement of these empty figures simply looks weird. I also added a markdown-produced figure and how to link to it. One of the most powerful aspects of R Markdown is the ability to produce figures directly from R, without having to save and load figure files into LaTeX. The added markdown-produced figure follows the same layout specifications as all other figures. I also added a few sentences to explain the differences in linking between a file-loaded figure and a markdown-produced figure.
+
+(4) Finally, I included non-colored document links (to footnotes, to referred chapters/figures/tables) because they are very useful for committee members to review your dissertation. I also fixed two typos in the AU LaTeX dissertation template in section 3.4.
+
+
+
+## Personal preferences
+
+If you are writing in RStudio, I find the [wordcount addin](https://github.com/benmarwick/wordcountaddin) very useful for getting word counts and readability statistics in R markdown documents. I also recommend using the [citr addin](https://github.com/crsh/citr) to insert citations.
+
+If you are working on a Mac, I highly recommend using [BibDesk](https://bibdesk.sourceforge.io) to create and manage your bibliography.
+
+Finally, if you are using `stargazer` to create tables, I highly recommend this [cheat sheet](https://www.jakeruss.com/cheatsheets/stargazer/).
+
+
+
+## Related projects
+
+This project has drawn directly on code and ideas from the following:
+
+- https://github.com/benmarwick/huskydown
+- https://github.com/ismayc/thesisdown
+- http://ismayc.github.io/ecots2k16/template_pkg/
+
+
+
+## Contributing
+
+If you would like to contribute to this project, please start by reading the [Guide to Contributing](CONTRIBUTING.md). Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
+
