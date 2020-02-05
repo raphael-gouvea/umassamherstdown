@@ -3,11 +3,14 @@
 title: "MY THESIS OR DISSERTATION TITLE IN CAPITALS\\newline (WITH 48 CHARACTERS OR FEWER PER LINE)\\newline AS AN INVERTED PYRAMID"
 author: "Will U. Finnish"
 degreeyear: "2525"
-degree: "Doctor of Philosophy"
+degree: "Doctor of Philosophy PhD"
 chair: "Professor Ivory Tower"
-secondreader: "Professor Ivory Tower"
-thirdreader: "Professor Mih Sing Cite"
-fourthreader: "Professor Ver Tigo"
+department: "Economics"
+bachelors: "M.A. Economics"
+commiteechair: "Professor Commitee Chair"
+firstdreader: "Professor Ivory Tower"
+secondreader: "Professor Mih Sing Cite"
+thirdreader: "Professor Ver Tigo"
 degreefield: "Introspective Empiricism"
 abstract: |
   This is an abstractn.  It has a page number. (AU no longer wants you to provide an unnumbered abstract page.) The Guide says an abstract should not exceed 350 words. (If you do exceed this, then under the CAS option, the first page is numbered bottom center, and the rest are numbered top right.) This is an abstractn. This is an abstractn. This is an abstractn. This is an abstractn. This is an abstractn. This is an abstractn. This is an abstractn. This is an abstractn. This is an abstractn. This is an abstractn. This is an abstractn. This is an abstractn. This is an abstractn. This is an abstractn. This is an abstractn. This is an abstractn. This is an abstractn. This is an abstractn. This is an abstractn. This is an abstractn. This is an abstractn. This is an abstractn. This is an abstractn. This is an abstractn. This is an abstractn. 
@@ -17,7 +20,7 @@ acknowledgements: |
 knit: "bookdown::render_book"
 site: bookdown::bookdown_site
 output: 
-  eagledown::dissertation_pdf: 
+  umassamherstdown::dissertation_pdf: 
     latex_engine: xelatex
 #  eagledown::dissertation_gitbook: default
 #  eagledown::dissertation_word: default

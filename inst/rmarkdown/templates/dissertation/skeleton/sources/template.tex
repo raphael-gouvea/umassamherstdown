@@ -1,161 +1,294 @@
-%%%%%%% The majority of notes and code is from the original AU template. Adjustments/Additions are indicated by SH (Simon Heuberger)
-%Last modified: 2018 Apr 30
-% SH modifications for Markdown made in February 2019
+%%
+%% This is a sample doctoral dissertation.  It shows the appropriate
+%% structure for your dissertation.  It should handle most of the
+%% strange requirements imposed by the Grad school; like the different
+%% handling of titles of one/many appendices.  It will automatically
+%% handle the linespacing changes.  The body default is double-spaced
+%% (except when you use the singlespace or condensed options).  The
+%% default for quotations is single-space, and the default for tabular
+%% environments is also single-space.
+%%
+%% This class adds the following commands and environments to the
+%% report class, upon which it is based:
+%% Commands
+%% ------------
+%% \degree{name}{abbrv} -- Sets the name and abbreviation for the degree.
+%%                         These default to ``Doctor of Philosopy''
+%%                         and ``Ph.D.'', respectively.
+%% \copyrightyear{year} -- for the copyright page.
+%% \bachelors{degree}{institution} -- for the abstract
+%% \masters{degree}{institution}   --  "
+%%     if you have other degrees you may use
+%% \secondbachelors{degree}{institution}
+%% \thirdbachelors{degree}{institution}
+%% \secondmasters{degree}{institution}
+%% \thirdmasters{degree}{institution}
+%% \priordoctorate{degree}{institution}
+%%
+%% \committeechair{name}           -- for the signature page
+%% or, if you have two co-chairs:
+%% \cochairs{first name}{second name}
+%%
+%% \firstreader{name}              --  "
+%% \secondreader{name}             --  "
+%% \thirdreader{name}              -- (optional)
+%% \fourthreader{name}             --  "
+%% \fifthreader{name}              --  "
+%% \sixthreader{name}              --  "
+%% \departmentchair{name}          -- for the signature page
+%% \departmentname{name}           --  "
+%%
+%% \copyrightpage                  -- produces the copyright page
+%% \signaturepage                  -- produces the signature page
+%%
+%% \frontmatter                    -- these are required in their various
+%% \mainmatter                     -- appropriate locations
+%% \backmatter                     --
+%%
+%% \unnumberedchapter[toc]{name}   -- like \chapter, except that it
+%%                                    produces an unnumbered chapter;
+%%                                    alternatively, like \chapter*,
+%%                                    except that it lists the chapter
+%%                                    in the table of contents.
+%%
+%% New environments:
+%%   dedication  -- for the dedication
+%%   abstract    -- for the abstract
+%%
+%% The thesis documentclass is built on top of the report document class.
+%% It accepts all of the options that the report class accepts, plus the
+%% following:
+%%     doublespace -- the default, indicates double spacing as per U.Mass.
+%%                    requirements.  You will need this when you do your
+%%                    final copy.
+%%     singlespace -- for earlier work, not acceptable to the Grad school
+%%     condensed   -- for earlier work, not acceptable to the Grad school,
+%%                    creates condensed versions of the frontmatter.
+%%                    Condensed implies singlespace.
+%%     dissertation - the default, indicates that this document is a
+%%                    dissertation.
+%%     proposal    -- indicates that this document is a dissertation proposal,
+%%                    rather than a dissertation.  This will only change the
+%%                    wording on the title and signature pages.
+%%     thesis      -- indicates that this document is a Master's thesis
+%%                    rather than a doctoral dissertation.  This also changes
+%%                    the default for \degree to Master of Science, M.S.
+%%     allowlisthypenation -- (the default), allows hyphenation of words in
+%%                    the table of contents, the list of figures, and the list
+%%                    of tables.  I believe that this is acceptable to the
+%%                    Graduate School.
+%%     nolisthyphenation -- disallows hyphenation of words in the table of
+%%                    contents and the list of figures and tables.  Use this
+%%                    option if the Grad School doesn't like your hyphenation.
+%%     nicerdraft  -- relaxes some of the Grad School's rules for working with
+%%                    drafts -- has no effect when doublespace is in effect
+%%     nonicerdraft -- the default, leaves things in draft as they will be in
+%%                     the final version
+%% umassthesis changes the default font size to 12pt, but you may specify 10pt or
+%%   11pt in the options.
+\documentclass{umassthesis}          % for Ph.D. dissertation or proposal
+% \documentclass[thesis]{umassthesis}  % for Master's thesis
 
-\documentclass[12pt,econ]{sources/authesis}
-% IMPORTANT NOTES:
-% 1) You MUST run LaTeX THREE times after runing BibTeX.
-% 2) Make sure that you have the LATEST version of the AUTHESIS class files
-%    before you hand in the final version of your thesis or dissertation.
-% 3) SPA students can uncomment the next two lines:
-%\renewcommand{\schoolorcollege}{School of Public Affairs}
-%\renewcommand{\deansigline}{\parbox{2.1in}{Dean of the School}}
+%%
+%% If you have enough figures or tables that you run out of space for their
+%% numbers in the List of Tables or List of figures, you can use the following
+%% command to adjust the space left for numbers.  The default is shown:
+%%
+%% \setlength{\tablenumberwidth}{2.3em}
 
-% \usepackage commands should go before the \begin{document}
-%required packages
-\usepackage{natbib}  % natbib citation style
+%% Use the hyperref package if you're producing a version for online
+%% distribution and you want hyperlinks.  Note that the Grad School doesn't want
+%% their PDF viewers to colorize or otherwise highlight the links; use the
+%% hidelinks option to hyperref to avoid decorating links.
+%\usepackage[hidelinks]{hyperref}
 
-%%% SH begin
-% Removed \usepackage{url} and replaced it with the more functional {hyperref}
-\usepackage[hidelinks]{hyperref}
-%%% SH end
-
-%optional packages
-
-%CTABLE
-%\usepackage{ctable} %You should learn about ctable!!
-
-%ULEM
-% IF you use the 'cas' option instead of the preferred 'econ' option,
-% you MAY uncomment the following line.  (NOT recommended.)
-%\usepackage{ulem}
-
-
-%%% SH begin
-% Removed the longtable environment and the longtable in chapter 01 of the template because it is very bad practice
-% The university itself strongly advises against using longtables in the template and only provides it as a last resort
-
-% The following packages are for the LaTeX generated graph
-\usepackage{lscape}
-\usepackage{float} % to float stargazer tables with argument [t] specified in the AU thesis class
-
-% FIGURES
-%
-$if(graphics)$
-\usepackage{graphicx}
-% The following generates all images so they have a width \maxwidth. This means that they will get their normal width if they fit onto the page, but are scaled down if they would overflow the margins:
-\makeatletter
-\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth
-\else\Gin@nat@width\fi}
-\makeatother
-\let\Oldincludegraphics\includegraphics
-\renewcommand{\includegraphics}[1]{\Oldincludegraphics[width=\maxwidth]{#1}}
-% The following is repeated from the .cls file to make it appear in Markdown. The commands set the figure float, count etc.
-\makeatletter
-\def\fps@figure{t} 
-\def\ftype@figure{1}
-\def\ext@figure{lof}
-\def\fnum@figure{\figurename~\thefigure}
-\def\figure{\@float{figure}}
-\let\endfigure\end@float
-\@namedef{figure*}{\@dblfloat{figure}}
-\@namedef{endfigure*}{\end@dblfloat}
-\makeatother
-$endif$
-
-% The following is repeated from the .cls file to make it appear in Markdown. The commands set the captions and also make the lof and lot double-spaced (unless it extends to more than one line, in which case it's single-spaced)
-\makeatletter
-\def\caption{\refstepcounter\@captype \@dblarg{\@caption\@captype}}
-\long\def\@caption#1[#2]#3{%
-  \par \par
-  \addcontentsline{\csname ext@#1\endcsname}{#1}%
-    {\protect\numberline{\csname the#1\endcsname.}{\ignorespaces #2}}%
-  \addtocontents{\csname ext@#1\endcsname}{\protect\addvspace{10\p@}}%
-  \begingroup
-    \@parboxrestore
-    \if@minipage
-      \@setminipage
-    \fi
-    \normalsize
-    \@makecaption{\csname fnum@#1\endcsname}{\ignorespaces #3}\par
-  \endgroup}
-\makeatother
-
-
-\title{$title$}
-\author{$author$}
-\degreeyear{$degreeyear$}
-\degree{$degree$}
-\chair{$chair$}
-\secondreader{$secondreader$}
-\thirdreader{$thirdreader$}
-\fourthreader{$fourthreader$}
-\degreefield{$degreefield$}
-%%% SH end
+%% One way of formatting the epigraph/frontispiece is to use this package.
+%\usepackage{epigraph}
 
 \begin{document}
 
-% Declarations for Front Matter
-%
-% IMPORTANT: IF A TITLE OR SUBTITLE EXCEEDS MORE THAN ONE LINE,
-%            THERE SHOULD ONLY BE  48 CHARACTERS PER LINE.
-%
-% The dissertation title must be capitalized for AU-CAS
+%%
+%% You must fill in all of these appropriately
+\title{$title$}
+\author{$author$}
+\date{$date$} % The date you'll actually graduate -- must be
+                     % February, May, or September
+\copyrightyear{$degreeyear$}
+\bachelors{B.Sc.}{$bachelors$}
+\masters{M.Sc.}{$masters$}
+\secondmasters{M.Ed.}{$secondmasters$}
+\priordoctorate{M.D.}{$priordoc$}
+\committeechair{$commiteechair$}
+%\cochairs{B. B. Bahh}{I. M. A. Wolf}
+\firstreader{$firstreader$}
+\secondreader{$secondreader$}
+\thirdreader{$thirdreader$}
+%\fourthreader{Mary Lamb}   % Optional
+%\fifthreader{}            % Optional
+%\sixthreader{}            % Optional
+\departmentchair{$chair$} % Default uses "Department Chair" as the title. To
+% use an alternate title, such as "Chair", use \departmentchair[Chair]{Pete Shearer}
+% CICS uses "Chair of the Faculty" as of 2019.
+\departmentname{$department$}
 
-%%% SH begin
-% \title{}, \author{}, \degree{}, \fourthreader etc. are all specified in the .Rmd. Any changes to the number of readers will also need to be made in "authesis.cls", like in the original template
-%%% SH end
+%% If your degree is something other than a Ph.D. (for a dissertation), or
+%% an M.S. (for a thesis), you will need to uncomment the appropriate
+%% following line:
+%%
+%% \degree{Doctor of Education}{Ed.D.}
+\degree{$degree$}{Ph.D.}
+%%
+%% \degree{Master of Arts}{M.A.}
+%% \degree{Master of Arts in Teaching}{M.A.T.}
+%% \degree{Master of Business Administration}{M.B.A.}
+%% \degree{Master of Education}{M.Ed.}
+%% \degree{Master of Fine Arts}{M.F.A.}
+%% \degree{Master of Landscape Architecture}{M.L.A.}
+%% \degree{Master of Music}{M.M.}
+%% \degree{Master of Public Administration}{M.P.A.}
+%%\degree{Master of Public Health}{M.P.H.}
+%% \degree{Master of Regional Planning}{M.R.P.}
+%% \degree{Master of Science}{M.S.}
+%% \degree{Master of Science in Accounting}{M.S. Acctg.}
+%% \degree{Master of Science in Chemical Engineering}{M.S. Ch.E.}
+%% \degree{Master of Science in Civil Engineering}{M.S.C.E.}
+%% \degree{Master of Science in Electrical and Computer Engineering}{M.S.E.C.E.}
+%% \degree{Master of Science in Engineering Management}{M.S. Eng. Mgt.}
+%% \degree{Master of Science in Environmental Engineering}{M.S. Env. E.}
+%% \degree{Master of Science in Industrial Engineering and Operations Research}{M.S.I.E.O.R.}
+%% \degree{Master of Science in Manufacturing Engineering}{M.S. Mfg. Eng.}
+%% \degree{Master of Science in Mechanical Engineering}{M.S.M.E.}
+%%
+%% \degree{Professional Master of Business Administration}{P.M.B.A.}
 
-% The following command makes the title page, it is duplicated to produce
-% two copies of cover page, as required by AU-CAS.
 
+%%
+%% These lines produce the title, copyright, and signature pages.
+%% They are Mandatory; except that you could leave out the copyright page
+%% if you were preparing an M.S. thesis instead of a PhD dissertation.
+\frontmatter
 \maketitle
+\copyrightpage     %% not required for an M.S. thesis
+\signaturepage
 
-\maketitle
+%%
+%% Dedication is optional -- but this is how you create it
+%%\begin{dedication}              % Dedication page
+%%  \begin{center}
+%%    \emph{To those little lost sheep.}
+%%  \end{center}
+%%\end{dedication}
 
-% The following command makes the copyright page
-
-\copyrightpage
-
-\begin{frontmatter}
-% The Guide requires one numbered abstract page.
-% The 'abstractn' macro generates a numbered abstract page.
-% Do NOT use the 'abstract' macro, which generates an unnumbered, abstract page.
-% (NOTE: The Guide no longer requires two abstract pages, one numbered, one without numbers.)
-
-%%% SH begin
-\abstractn{$abstract$}
-% The content of the abstract is specified in the .Rmd
-%%% SH end
+%%
+%% Epigraph (aka frontispiece) is also optional, but this is one way you
+%% can create it
+%\begin{frontispiece}
+%  %% Format to your liking -- see documentation of epigraph package
+%  \setlength{\epigraphrule}{0pt}
+%
+%  \begin{epigraphs}
+%    \qitem{%
+%      \itshape
+%      Mary had a little lamb,\\
+%      Her fleece was white as snow.\\
+%      \vspace{\baselineskip}
+%      And everywhere that Mary went\\
+%      The lamb was sure to go.
+%      \vspace{\baselineskip}}
+%    {Sarah Josepha Hale}
+%
+%    \vspace{2\baselineskip}
+%    \qitem{%
+%      \itshape
+%      Baa, baa, black sheep,\\
+%      Have you any wool?\\
+%      Yes, sir, yes, sir,\\
+%      Three bags full;\\
+%      One for the master,\\
+%      And one for the dame,\\
+%      And one for the little boy\\
+%      Who lives down the lane.
+%      \vspace{\baselineskip}}
+%    {English Nursery Rhyme}
+%
+%  \end{epigraphs}
+%\end{frontispiece}
 
 
 % Acknowledgements are optional. If you do not wish to include them,
 % simply do not include this command in your source.
 
-%%% SH begin
+%%% RG begin
 \acknowledgements{$acknowledgements$}
 % The content of the acknowledgements is specified in the .Rmd
-%%% SH end
+%%% RG end
 
-\listoftables
+%%% RG begin
+\abstractn{$abstract$}
+% The content of the abstract is specified in the .Rmd
+%%% RG end
 
-\listoffigures
+%%
+%% Acknowledgements are optional...yeah, right.
+%%\chapter{Acknowledgments}             % Acknowledgements page
+%%  Thanks to all those fine shepherds. Not to mention all the great
+%%  border collies and suchlike fine animals.
 
-%%% SH begin
-% lot and lof moved before the toc because \setcounter{page}{1} in the frontmatter environment for some reason messes up the toc page numbering when they come after the toc. This is cleared and acceptable with AU admin
-%%% SH end
+%%
+%% Abstract is MANDATORY. -- Except for MS theses
+%%\begin{abstract}                % Abstract
+%%  Sheep like grass.  Why?  Let me tell you.  Sheep are ruminants, like
+%%  cattle, deer, and horses.  They have stomachs that are specialized...
+%%\end{abstract}
 
-\tableofcontents
+%%
+%% Preface goes here...would be just like Acknowledgements -- optional
+%% \chapter{Preface}
+%% ...
 
-\end{frontmatter}
 
+%%
+%% Table of contents is mandatory, lists of tables and figures are
+%% mandatory if you have any tables or figures; must be in this order.
+\tableofcontents                % Table of contents
+\listoftables                   % List of Tables
+\listoffigures                  % List of Figures
 
+%%
+%% We don't handle List of Abbreviations
+%% We don't handle Glossary
 
-%%% SH begin
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Time for the body of the dissertation
+\mainmatter   %% <-- This line is mandatory
+
+%%% RG begin
 $body$
 % This loads all chapters up to and including the Conclusion, the content of which is created in the respective .Rmd files
 % The appendix and references are loaded in separate .Rmd files
-%%% SH end
+%%% RG end
+
+%%
+%% If you want an introduction, which is not a numbered chapter, insert
+%% the following two lines.  This is OPTIONAL:
+%\unnumberedchapter{Introduction}
+%Why on earth do I want to study sheep anyway?
+
+
+%%
+%% Beginning of back matter
+\backmatter  %% <--- mandatory
+
+%%
+%% We don't support endnotes
+
+%%
+%% A bibliography is required.
+%\interlinepenalty=10000  % prevent split bibliography entries
+%\bibliographystyle{umassthesis}
+%\bibliography{umthsmpl}
+
+
 
 \end{document}
 
